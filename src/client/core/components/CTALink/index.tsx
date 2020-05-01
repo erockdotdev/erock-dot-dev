@@ -12,7 +12,7 @@ const CTALink: React.FC<Props> = ({ link }) => {
     fields: { linkLabel, linkPath, isExternalLink, openInNewTab }
   } = link;
 
-  return isExternalLink ? (
+  const renderLink = isExternalLink ? (
     <a
       href={linkPath}
       target={openInNewTab ? '_blank' : undefined}
@@ -29,6 +29,8 @@ const CTALink: React.FC<Props> = ({ link }) => {
       {linkLabel}
     </Link>
   );
+
+  return <div className="CTALink__container">{renderLink}</div>;
 };
 
 export default CTALink;

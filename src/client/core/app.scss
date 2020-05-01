@@ -4,10 +4,16 @@
 // Component styles
 @import './components/components';
 
+// Component styles
+@import './styles/_fonts.scss';
+
 // // Module Styles
 // @import './modules/modules';
-
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   display: block !important;
-  font-family: 'MyFont' !important;
+  font-family: 'Open Sans Regular' !important;
 }

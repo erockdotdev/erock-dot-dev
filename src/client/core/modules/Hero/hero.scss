@@ -1,7 +1,40 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/_typography.scss';
 
 .hero {
   &__container {
-    border: solid red 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 75vh;
+    position: relative;
+    color: $white;
+    margin: -25px;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      background: linear-gradient(to top, black, transparent);
+      padding: 25px;
+      &__headline {
+        font-size: 75px;
+        line-height: 75px;
+        text-transform: uppercase;
+      }
+      &__subcopy {
+        font-size: 38px;
+      }
+      &__link-container {
+        font-size: 24px;
+      }
+    }
+    &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
   }
 }

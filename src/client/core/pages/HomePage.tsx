@@ -16,9 +16,7 @@ const Home: React.FC = () => {
 
   return (
     <BasePage metaData={metaData}>
-      <div className="home__container">
-        <Hero hero={hero} />
-      </div>
+      <div className="home__container">{hero && <Hero hero={hero} />}</div>
     </BasePage>
   );
 };

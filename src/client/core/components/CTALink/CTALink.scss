@@ -1,7 +1,9 @@
 @import '~styles/config/_colors.scss';
 
-.CtaLink {
+.CTALink {
   &__container {
-    border: none;
+    a {
+      color: $white;
+    }
   }
 }

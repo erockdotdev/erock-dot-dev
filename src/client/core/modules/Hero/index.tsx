@@ -12,7 +12,14 @@ import './hero.scss';
 
 const renderLinks = (ctaLinks: componentLink[]): React.ReactNodeArray => {
   return ctaLinks.map(link => {
-    return link && <CTALink link={link} />;
+    const { id } = link.sys;
+    return (
+      link && (
+        <React.Fragment key={id}>
+          <CTALink link={link} />
+        </React.Fragment>
+      )
+    );
   });
 };
 const renderBackgroundDesktop = (
@@ -30,11 +37,22 @@ const Hero: React.FC<HeroType> = ({ hero }) => {
     fields: { headline, subcopy, ctaLinks, backgroundDesktop, backgroundMobile }
   } = hero;
   return (
-    <section>
-      <h1>{headline}</h1>
-      <span>{subcopy}</span>
-      <div>{renderLinks(ctaLinks)}</div>
-      {renderBackgroundDesktop(backgroundDesktop)}
+    <section className="hero__container">
+      <div className="hero__container__content">
+        <span className="hero__container__content__headline">{headline}</span>
+        {subcopy && (
+          <span className="hero__container__content__subcopy">{subcopy}</span>
+        )}
+        {ctaLinks && (
+          <div className="hero__container__content__link-container">
+            {renderLinks(ctaLinks)}
+          </div>
+        )}
+      </div>
+
+      <div className="hero__container__background">
+        {renderBackgroundDesktop(backgroundDesktop)}
+      </div>
     </section>
   );
 };

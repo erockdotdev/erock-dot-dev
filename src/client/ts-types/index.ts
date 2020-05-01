@@ -61,6 +61,7 @@ export type componentLink = {
     isExternalLink: boolean;
     openInNewTab: boolean;
   };
+  sys: sys;
 };
 
 type sys = {
@@ -68,6 +69,17 @@ type sys = {
     sys: {
       id: string;
     };
+  };
+  id: string;
+};
+
+export type ImageSizes = {
+  mediaQuery: string;
+  params: {
+    w: number;
+    h?: number;
+    q: number;
+    fit?: string;
   };
 };
 
