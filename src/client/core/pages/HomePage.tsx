@@ -7,7 +7,7 @@ function Home() {
       style={{ marginTop: '200px' }}
     >
       <h3>Welcome</h3>
-      <p>erock.dev PRODUCTION</p>
+      <p>erock.dev DEVELOP</p>
     </div>
   );
 }
