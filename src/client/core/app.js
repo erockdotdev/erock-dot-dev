@@ -6,7 +6,7 @@ import './app.scss';
 
 const App = ({ route }) => {
   return (
-    <div>
+    <div id="app-root">
       <Header />
       {renderRoutes(route.routes)}
     </div>
