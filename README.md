@@ -12,3 +12,21 @@
 
 This application uses Typescript for static typing and Jest & Enzyme for unit tests.
 For styling it relies strictly on the BEM methodology.
+
+## Pushing to Staging and Production environments
+
+Push to prod
+
+1. switch to master branch
+2. git add .
+3. git commit -m "commit message"
+4. git push
+5. git push production master
+
+Push to staging
+
+1. switch to develop branch
+2. git add .
+3. git commit -m "commit message"
+4. git push
+5. git push staging develop:master`
