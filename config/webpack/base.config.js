@@ -53,6 +53,7 @@ module.exports = {
         '../../src/client/core/components'
       ),
       '@pages': path.resolve(__dirname, '../../src/client/core/pages'),
+      '@modules': path.resolve(__dirname, '../../src/client/core/modules'),
       '@redux': path.resolve(__dirname, '../../src/client/state/redux'),
       '@custom-types': path.resolve(__dirname, '../../src/client/ts-types'),
       '@mocks': path.resolve(__dirname, '../../src/client/state/mocks'),

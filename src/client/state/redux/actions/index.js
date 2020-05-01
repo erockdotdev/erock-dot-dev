@@ -3,7 +3,8 @@ import {
   FETCH_USERS,
   FETCH_CURRENT_USER,
   FETCH_ADMINS,
-  FETCH_ABOUT_PAGE
+  FETCH_ABOUT_PAGE,
+  FETCH_HOME_PAGE
 } from '../types';
 
 export const fetchUsers = () => async (dispatch, getState, api) => {
@@ -26,6 +27,17 @@ export const fetchAdmins = () => async (dispatch, getState, api) => {
   const res = await api.get('/admins');
   dispatch({
     type: FETCH_ADMINS,
+    payload: res
+  });
+};
+
+export const fetchHomePage = () => async dispatch => {
+  const res = await contentfulClient.getEntries({
+    content_type: 'pageHome',
+    include: 5
+  });
+  dispatch({
+    type: FETCH_HOME_PAGE,
     payload: res
   });
 };

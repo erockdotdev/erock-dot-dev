@@ -1,0 +1,25 @@
+@import '~styles/config/_colors.scss';
+
+.nav {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    padding: 0 25px;
+    border-bottom: solid $black 1px;
+  }
+  &__nav-link {
+    padding: 0 5px;
+    color: $black;
+    text-decoration: none;
+  }
+  &__brand-logo {
+    color: $black;
+    display: initial;
+    text-decoration: none;
+  }
+  &__right {
+    display: flex;
+  }
+}
