@@ -3,6 +3,7 @@ import BasePage from '@components/BasePage';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHomePage } from '@redux/actions';
 import { pageFieldsSelector } from '@redux/selectors';
+import detectMobile from '@utils/mobileUserAgent';
 import Hero from '@modules/Hero';
 
 const Home: React.FC = () => {
@@ -21,7 +22,9 @@ const Home: React.FC = () => {
   );
 };
 
-function loadData(store: any): void {
+function loadData(store: any, userAgent: any): void {
+  // const isMobileDevice = detectMobile(userAgent);
+
   return store.dispatch(fetchHomePage());
 }
 

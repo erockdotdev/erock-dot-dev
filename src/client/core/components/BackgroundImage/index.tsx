@@ -1,14 +1,14 @@
 import React from 'react';
 import { componentImage, ImageSizes } from '@custom-types/index';
 import ReactContentfulImage from 'react-contentful-image';
-import './image.scss';
+import './background-image.scss';
 
 type Props = {
-  image: componentImage;
+  imageData: componentImage;
   sizes?: ImageSizes[];
 };
 
-const Image: React.FC<Props> = ({ image, sizes }) => {
+const BackgroundImage: React.FC<Props> = ({ imageData, sizes }) => {
   const {
     fields: {
       image: {
@@ -19,12 +19,12 @@ const Image: React.FC<Props> = ({ image, sizes }) => {
         }
       }
     }
-  } = image;
+  } = imageData;
 
   return (
-    <div className="image__container">
+    <div className="background-image__container">
       <ReactContentfulImage
-        className="image__container__image"
+        className="background-image__container__image"
         title={title}
         alt={description}
         src={url}
@@ -46,4 +46,4 @@ const Image: React.FC<Props> = ({ image, sizes }) => {
   );
 };
 
-export default Image;
+export default BackgroundImage;

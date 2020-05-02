@@ -36,11 +36,13 @@ export type image = {
 
 export type componentVideo = {
   fields: {
+    title: string;
+    headline: string;
     description: string;
     thumbnail: image;
-    title: string;
     videoId: string;
     videoProvider: string[];
+    loopContinuously: boolean;
   };
   sys: sys;
 };
@@ -86,4 +88,10 @@ export type ImageSizes = {
 export const BackgroundType = {
   video: 'componentVideo',
   image: 'componentImage'
+};
+
+export type screenDimensions = {
+  isMobile: boolean;
+  isTablet: boolean;
+  isDesktop: boolean;
 };

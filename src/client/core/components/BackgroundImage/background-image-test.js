@@ -5,9 +5,9 @@ import { mount } from '@components/CTALink/node_modules/enzyme';
 import thunk from '@components/CTALink/node_modules/redux-thunk';
 import configureStore from '@components/CTALink/node_modules/redux-mock-store';
 import initialState from '@mocks/state.json';
-import CTALink from './index';
+import BackgroundImage from './index';
 
-describe('Component: CTALink', () => {
+describe('Component: Image', () => {
   let wrapper;
   let store;
   const middlewares = [thunk];
@@ -17,7 +17,7 @@ describe('Component: CTALink', () => {
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <CTALink />
+          <BackgroundImage />
         </MemoryRouter>
       </Provider>
     );

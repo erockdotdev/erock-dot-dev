@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+
 export default {
-  newLineToBreak: str => str.replace(/(?:\r\n|\r|\n)/g, "<br/>"),
+  newLineToBreak: str => str.replace(/(?:\r\n|\r|\n)/g, '<br/>'),
   firstLetterToUppercase: string => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   },
@@ -16,8 +17,8 @@ export default {
   },
   objectToQueryString: params => {
     return Object.keys(params)
-      .map(key => key + "=" + params[key])
-      .join("&");
+      .map(key => key + '=' + params[key])
+      .join('&');
   },
   toTitleCase: str => {
     return str.replace(/\w\S*/g, function(txt) {
@@ -28,5 +29,5 @@ export default {
     return str.replace(/-([a-z])/g, function(m, s) {
       return s.toUpperCase();
     });
-  },
+  }
 };

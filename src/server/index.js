@@ -1,29 +1,30 @@
-import "babel-polyfill";
-import express from "express";
-import { matchRoutes } from "react-router-config";
-import Routes from "../client/core/routes";
-import renderer from "./utils/renderer";
-import createStore from "./utils/create-store";
-import proxy from "express-http-proxy";
+import 'babel-polyfill';
+import express from 'express';
+import { matchRoutes } from 'react-router-config';
+import Routes from '../client/core/routes';
+import renderer from './utils/renderer';
+import createStore from './utils/create-store';
+import proxy from 'express-http-proxy';
 //import { PORT } from "@config/app-config";
 
 const app = express();
 
 app.use(
-  "/api",
-  proxy("http://react-ssr-api.herokuapp.com", {
+  '/api',
+  proxy('http://react-ssr-api.herokuapp.com', {
     proxyReqOptDecorator(opts) {
-      opts.headers["x-forwarded-host"] = "localhost:3000";
+      opts.headers['x-forwarded-host'] = 'localhost:3000';
       return opts;
-    },
+    }
   })
 );
-app.use(express.static("public"));
-app.get("*", (req, res) => {
+app.use(express.static('public'));
+app.get('*', (req, res) => {
   const store = createStore(req);
 
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
-    return route.loadData ? route.loadData(store) : null;
+    const userAgent = req.headers['user-agent'];
+    return route.loadData ? route.loadData(store, userAgent) : null;
   });
 
   Promise.all(promises)
@@ -38,7 +39,7 @@ app.get("*", (req, res) => {
       }
       res.send(content);
     })
-    .catch((error) => {
+    .catch(error => {
       res.send(`${error}`);
     });
 });
