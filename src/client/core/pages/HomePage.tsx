@@ -1,36 +1,11 @@
-import React, { useEffect, ReactComponentElement } from 'react';
+import React, { useEffect } from 'react';
 import BasePage from '@components/BasePage';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHomePage } from '@redux/actions';
 import { pageFieldsSelector } from '@redux/selectors';
 import detectMobile from '@utils/mobileUserAgent';
 import Hero from '@modules/Hero';
-import Modules from '@modules/moduleMapper';
-
-type uiModule = {
-  sys: {
-    contentType: {
-      sys: {
-        id: string;
-      };
-    };
-  };
-  fields: object;
-};
-
-type uiModules = {
-  [name: string]: React.ReactType;
-};
-
-function renderUIModules(uiModules: uiModule[]): any {
-  return uiModules.map(uiModule => {
-    const { id } = uiModule.sys.contentType.sys;
-    const { fields } = uiModule;
-    const uiModuleRenderer: uiModules = Modules;
-    const ModuleToRender = uiModuleRenderer[id];
-    return ModuleToRender && <ModuleToRender fields={fields} />;
-  });
-}
+import renderUIModules from '@utils/moduleRenderer';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
