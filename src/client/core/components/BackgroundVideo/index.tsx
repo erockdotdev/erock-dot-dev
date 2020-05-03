@@ -41,7 +41,6 @@ const BackgroundVideo: React.FC<Props> = ({ videoData }) => {
           playing
           volume={0}
           muted
-          controls={false}
           width="100%"
           height="auto"
           playsinline
