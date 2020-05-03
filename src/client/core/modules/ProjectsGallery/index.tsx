@@ -4,7 +4,14 @@ import React from 'react';
 // } from '@custom-types/index';
 import './projects-gallery.scss';
 
-const ProjectsGallery: React.FC = ({ fields }) => {
+type Props = {
+  fields: {
+    sectionTitle: string;
+    slides: any;
+  };
+};
+
+const ProjectsGallery: React.FC<Props> = ({ fields }) => {
   const { sectionTitle, slides } = fields;
   return (
     <section className="projects-gallery__container">

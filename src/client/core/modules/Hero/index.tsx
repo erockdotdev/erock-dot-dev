@@ -46,7 +46,7 @@ const renderBackground = (background: any): React.ReactElement | null => {
   if (id === BackgroundType.video) {
     return renderBackgroundVideo(background);
   }
-  return <span> WTF WHY</span>;
+  return null;
 };
 
 const Hero: React.FC<Props> = props => {
