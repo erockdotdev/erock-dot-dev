@@ -1,7 +1,12 @@
 import React from 'react';
-import './project-slide.scss';
+import { Project } from '@custom-types/index';
+import './project-card.scss';
 
-const ProjectSlide: React.FC = ({ slideData }) => {
+type Props = {
+  projectData: Project;
+};
+
+const ProjectSlide: React.FC<Props> = ({ projectData }) => {
   const {
     fields: {
       projectTitle,
@@ -16,7 +21,7 @@ const ProjectSlide: React.FC = ({ slideData }) => {
         fields: { isExternalLink, linkLabel, linkPath, openInNewTab }
       }
     }
-  } = slideData;
+  } = projectData;
 
   return (
     <section className="project-slide__container">

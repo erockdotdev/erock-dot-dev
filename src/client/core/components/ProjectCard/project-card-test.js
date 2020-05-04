@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import initialState from '@mocks/state.json';
-import ProjectSlide from './index';
+import ProjectCard from './index';
 
 describe('Component: ProjectSlide', () => {
   let wrapper;
@@ -17,7 +17,7 @@ describe('Component: ProjectSlide', () => {
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <ProjectSlide />
+          <ProjectCard />
         </MemoryRouter>
       </Provider>
     );

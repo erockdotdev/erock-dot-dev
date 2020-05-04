@@ -95,3 +95,13 @@ export type screenDimensions = {
   isTablet: boolean;
   isDesktop: boolean;
 };
+
+export interface Project {
+  fields: {
+    projectTitle: string;
+    subtitle: string;
+    thumbnail: image;
+    entryAsSlideCta: componentLink;
+  };
+  sys: sys;
+}
