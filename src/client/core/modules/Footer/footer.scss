@@ -8,8 +8,12 @@
     &__links {
       display: flex;
       justify-content: center;
-      a {
+      &__link {
         padding: 10px;
+        img {
+          height: 35px;
+          width: 35px;
+        }
       }
     }
     &__copyright {
