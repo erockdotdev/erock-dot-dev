@@ -5,9 +5,9 @@ import { mount } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import initialState from '@mocks/state.json';
-import Header from './index';
+import Brands from './index';
 
-describe('Component: Brands', () => {
+describe('Component: Header', () => {
   let wrapper;
   let store;
   const middlewares = [thunk];
@@ -17,7 +17,7 @@ describe('Component: Brands', () => {
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <Header />
+          <Brands />
         </MemoryRouter>
       </Provider>
     );
