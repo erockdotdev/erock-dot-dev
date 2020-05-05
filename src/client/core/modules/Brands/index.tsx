@@ -26,8 +26,18 @@ const Brands: React.FC<Props> = ({ fields }) => {
         <p>{headline}</p>
         <p>{subcopy}</p>
       </div>
-      <div className="brands__container__brands">{renderBrands(brands)}</div>
-      <div className="brands__container__artists">{renderBrands(artists)}</div>
+      <div className="brands__container__logo-wrapper">
+        <h3>Brands</h3>
+        <div className="brands__container__logo-inner">
+          {renderBrands(brands)}
+        </div>
+      </div>
+      <div className="brands__container__logo-wrapper">
+        <h3>Artists</h3>
+        <div className="brands__container__logo-inner">
+          {renderBrands(artists)}
+        </div>
+      </div>
     </section>
   );
 };
