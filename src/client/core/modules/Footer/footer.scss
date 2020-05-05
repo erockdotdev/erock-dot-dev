@@ -1,0 +1,21 @@
+@import '~styles/config/_colors.scss';
+
+.footer {
+  &__container {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    &__links {
+      display: flex;
+      justify-content: center;
+      a {
+        padding: 10px;
+      }
+    }
+    &__copyright {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

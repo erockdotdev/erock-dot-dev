@@ -1,15 +1,15 @@
-// @import '~styles/config/_colors.scss';
-// @import '~styles/config/_vars.scss';
-// @import '~styles/_typography.scss';
-// @import 'breakpoint-sass/stylesheets/_breakpoint.scss';
-
 .projects-gallery {
   &__container {
-    border: solid red 5px;
+    &__inner {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 -10px 0 -10px;
+      border: solid black 5px;
+      &__group {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
   }
-  // @include breakpoint($bp--md) {
-  //   &__container {
-  //     border: none;
-  //   }
-  // }
 }

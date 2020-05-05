@@ -1,5 +1,6 @@
 import React from 'react';
 import { Project } from '@custom-types/index';
+import CTALink from '@components/CTALink';
 import './project-card.scss';
 
 type Props = {
@@ -17,20 +18,16 @@ const ProjectSlide: React.FC<Props> = ({ projectData }) => {
           file: { url }
         }
       },
-      entryAsSlideCta: {
-        fields: { isExternalLink, linkLabel, linkPath, openInNewTab }
-      }
+      entryAsSlideCta
     }
   } = projectData;
 
   return (
-    <section className="project-slide__container">
-      <div>
-        <p>{projectTitle}</p>
-        <p>{subtitle}</p>
-        <img src={url} alt={description} />
-        <p>LINK: {linkLabel}</p>
-      </div>
+    <section className="project-card__container">
+      <p>{projectTitle}</p>
+      <p>{subtitle}</p>
+      <img src={url} alt={description} />
+      <CTALink link={entryAsSlideCta} />
     </section>
   );
 };

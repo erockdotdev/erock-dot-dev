@@ -5,7 +5,16 @@
 
 .project-card {
   &__container {
-    border: none;
+    width: 250px;
+    height: 350px;
+    margin: 10px;
+    padding: 5px;
+    border: solid black 1px;
+    & img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
   }
   // @include breakpoint($bp--md) {
   //   &__container {

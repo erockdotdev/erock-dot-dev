@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import Header from '@modules/Header';
+import Footer from '@modules/Footer';
 import { fetchCurrentUser } from '@redux/actions';
 import './app.scss';
 
@@ -9,6 +10,7 @@ const App = ({ route }) => {
     <div id="app-root">
       <Header />
       {renderRoutes(route.routes)}
+      <Footer />
     </div>
   );
 };

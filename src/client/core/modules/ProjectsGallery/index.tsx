@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { chunk } from 'lodash';
 import { Project } from '@custom-types/index';
 import ProjectCard from '@components/ProjectCard';
 import './projects-gallery.scss';
@@ -10,7 +11,7 @@ type Props = {
   };
 };
 
-function renderProjects(projects: Project[]): React.ReactNode {
+function renderProjects(projects: Project[]) {
   return projects.map(
     (project: Project): React.ReactNode => {
       const {
@@ -25,11 +26,26 @@ function renderProjects(projects: Project[]): React.ReactNode {
   );
 }
 
+function renderGroup(projects: Project[]): React.ReactNode {
+  const groupProjects = chunk(projects, 2);
+  return groupProjects.map((group, index) => {
+    const key = `group-${index}`;
+    return (
+      <div key={key} className="projects-gallery__container__inner__group">
+        {renderProjects(group)}
+      </div>
+    );
+  });
+}
+
 const ProjectsGallery: React.FC<Props> = ({ fields }) => {
   const { sectionTitle, projects } = fields;
   return (
     <section className="projects-gallery__container">
-      I am a {sectionTitle}!{renderProjects(projects)}
+      I am a {sectionTitle}!
+      <div className="projects-gallery__container__inner">
+        {renderGroup(projects)}
+      </div>
     </section>
   );
 };
