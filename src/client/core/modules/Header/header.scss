@@ -1,4 +1,5 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/typography.scss';
 
 .nav {
   &__container {
@@ -17,11 +18,18 @@
     padding: 0 5px;
     color: $white;
     text-decoration: none;
+    @include NavLink;
   }
   &__brand-logo {
     color: $white;
     display: initial;
     text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Rustproof Body', sans-serif;
+    font-size: 35px;
+    letter-spacing: -2px;
+    color: $white;
+    -webkit-text-stroke: $black 1px;
   }
   &__right {
     display: flex;

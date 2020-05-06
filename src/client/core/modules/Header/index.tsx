@@ -8,7 +8,7 @@ const Header = () => {
     <nav>
       <div className="nav__container">
         <Link className="nav__brand-logo" to="/">
-          erock.dev
+          E<span className="nav__brand-logo__dot">•</span>D
         </Link>
         <div className="nav__right">
           <Link className="nav__nav-link" to="/">
@@ -17,7 +17,9 @@ const Header = () => {
           <Link className="nav__nav-link" to="/about">
             About
           </Link>
-          <Modal />
+          <div className="nav__nav-link">
+            <Modal />
+          </div>
         </div>
       </div>
     </nav>

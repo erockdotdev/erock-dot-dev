@@ -5,6 +5,7 @@
     border: solid black 5px;
     &__logo-inner {
       display: flex;
+      flex-wrap: wrap;
     }
   }
 }

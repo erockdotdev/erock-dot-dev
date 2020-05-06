@@ -12,6 +12,11 @@
 @mixin Body {
   border: none;
 }
+@mixin NavLink {
+  font-size: 16px;
+  font-family: 'Open Sans Regular', sans-serif;
+  cursor: pointer;
+}
 @mixin Link {
   border: none;
 }

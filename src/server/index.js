@@ -56,7 +56,7 @@ app.post('/contact', (req, res) => {
   var mailOptions = {
     from: 'erock.danger@gmail.com',
     to: 'eric.q.sanchez@gmail.com',
-    subject: 'Look what I can do',
+    subject: 'AWE SHEEIT',
     text: 'Dane Dane so hot!'
   };
 
