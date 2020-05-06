@@ -7,15 +7,19 @@
     align-items: center;
     height: 75px;
     padding: 0 25px;
-    border-bottom: solid $black 1px;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, $black, transparent);
+    z-index: 1;
   }
   &__nav-link {
     padding: 0 5px;
-    color: $black;
+    color: $white;
     text-decoration: none;
   }
   &__brand-logo {
-    color: $black;
+    color: $white;
     display: initial;
     text-decoration: none;
   }
