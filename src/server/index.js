@@ -5,10 +5,11 @@ import Routes from '../client/core/routes';
 import renderer from './utils/renderer';
 import createStore from './utils/create-store';
 import proxy from 'express-http-proxy';
-//import { PORT } from "@config/app-config";
+import nodemailer from 'nodemailer';
+import bodyParser from 'body-parser';
 
 const app = express();
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   '/api',
   proxy('http://react-ssr-api.herokuapp.com', {
@@ -42,6 +43,30 @@ app.get('*', (req, res) => {
     .catch(error => {
       res.send(`${error}`);
     });
+});
+app.post('/contact', (req, res) => {
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.REACT_APP_EMAIL_FROM,
+      pass: process.env.REACT_APP_EMAIL_PASSWORD
+    }
+  });
+
+  var mailOptions = {
+    from: 'erock.danger@gmail.com',
+    to: 'eric.q.sanchez@gmail.com',
+    subject: 'Look what I can do',
+    text: 'Dane Dane so hot!'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
