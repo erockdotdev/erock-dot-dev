@@ -10,6 +10,7 @@ import bodyParser from 'body-parser';
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(
   '/api',
   proxy('http://react-ssr-api.herokuapp.com', {
@@ -45,6 +46,9 @@ app.get('*', (req, res) => {
     });
 });
 app.post('/contact', (req, res) => {
+  console.log('req.body', req.body);
+  const { email, message } = req.body;
+
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -54,10 +58,10 @@ app.post('/contact', (req, res) => {
   });
 
   var mailOptions = {
-    from: 'erock.danger@gmail.com',
+    from: email,
     to: 'eric.q.sanchez@gmail.com',
-    subject: 'AWE SHEEIT',
-    text: 'Dane Dane so hot!'
+    subject: `Info request from ${email}`,
+    text: message
   };
 
   transporter.sendMail(mailOptions, function(error, info) {

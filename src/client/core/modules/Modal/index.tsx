@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Modal as ReactModal } from 'react-responsive-modal';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './modal.scss';
 
-function sendEmail() {
+function submitMessage(values, setSubmitting) {
+  console.log('values', values);
+  const { email, message } = values;
   axios
     .post('/contact', {
-      // firstName: 'Fred',
-      // lastName: 'Flintstone'
+      email,
+      message
     })
     .then(function(response) {
       console.log('response', response);
+      setSubmitting(false);
     })
     .catch(function(error) {
       console.log('error', error);
+      setSubmitting(false);
     });
+  setSubmitting(false);
 }
 
 const Modal = () => {
@@ -37,10 +43,39 @@ const Modal = () => {
       </button>
       <ReactModal open={modalOpen} onClose={closeModal} center>
         <h2>Simple centered modal</h2>
+        <Formik
+          initialValues={{ email: '', message: '' }}
+          validate={values => {
+            const errors = {};
+            if (!values.email) {
+              errors.email = 'Required';
+            } else if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            ) {
+              errors.email = 'Invalid email address';
+            }
+            return errors;
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            submitMessage(values, setSubmitting);
+          }}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <Field type="email" name="email" />
+              <ErrorMessage name="email" component="div" />
+              <Field as="textarea" name="message" />
+              <ErrorMessage name="message" component="div" />
+              <button type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+            </Form>
+          )}
+        </Formik>
         <button
           type="button"
           onClick={() => {
-            sendEmail();
+            submitMessage();
           }}
         >
           SEND EMAIL
