@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Modal from '@modules/Modal';
 import './header.scss';
 
 const Header = () => {
@@ -16,6 +17,7 @@ const Header = () => {
           <Link className="nav__nav-link" to="/about">
             About
           </Link>
+          <Modal />
         </div>
       </div>
     </nav>

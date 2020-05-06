@@ -14,7 +14,8 @@ type Props = {
 
 function renderBrands(brands: componentImage[]): React.ReactNode {
   return brands.map((brand: componentImage) => {
-    return <BrandCard brandData={brand} />;
+    const { id } = brand.sys;
+    return <BrandCard key={id} brandData={brand} />;
   });
 }
 
