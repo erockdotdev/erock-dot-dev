@@ -61,7 +61,7 @@ app.post('/contact', (req, res) => {
     }
   };
 
-  const sendContach = sendContactEmail(req, response);
+  sendContactEmail(req, response);
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

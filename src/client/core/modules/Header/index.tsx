@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '@modules/Modal';
+import ContactForm from '@modules/ContactForm';
 import './header.scss';
 
 const Header = () => {
@@ -18,7 +19,9 @@ const Header = () => {
             About
           </Link>
           <div className="nav__nav-link">
-            <Modal />
+            <Modal buttonLabel="Contact">
+              <ContactForm />
+            </Modal>
           </div>
         </div>
       </div>
