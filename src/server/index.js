@@ -5,8 +5,8 @@ import Routes from '../client/core/routes';
 import renderer from './utils/renderer';
 import createStore from './utils/create-store';
 import proxy from 'express-http-proxy';
-import nodemailer from 'nodemailer';
 import bodyParser from 'body-parser';
+import { sendContactEmail } from './utils/send-contact-email';
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,32 +45,23 @@ app.get('*', (req, res) => {
       res.send(`${error}`);
     });
 });
+
 app.post('/contact', (req, res) => {
-  console.log('req.body', req.body);
-  const { email, message } = req.body;
-
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.REACT_APP_EMAIL_FROM,
-      pass: process.env.REACT_APP_EMAIL_PASSWORD
-    }
-  });
-
-  var mailOptions = {
-    from: email,
-    to: 'eric.q.sanchez@gmail.com',
-    subject: `Info request from ${email}`,
-    text: message
-  };
-
-  transporter.sendMail(mailOptions, function(error, info) {
+  const response = (error, info) => {
     if (error) {
       console.log(error);
+      res.status(400).send({
+        message:
+          'Unfortunately your request could not be processed, please try again',
+        error
+      });
     } else {
       console.log('Email sent: ' + info.response);
+      res.send(info.response);
     }
-  });
+  };
+
+  const sendContach = sendContactEmail(req, response);
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

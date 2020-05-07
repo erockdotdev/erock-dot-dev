@@ -13,11 +13,11 @@ function submitMessage(values, setSubmitting) {
       message
     })
     .then(function(response) {
-      console.log('response', response);
+      console.log('response in app', response);
       setSubmitting(false);
     })
     .catch(function(error) {
-      console.log('error', error);
+      console.log('error in app', error);
       setSubmitting(false);
     });
   setSubmitting(false);
@@ -72,14 +72,6 @@ const Modal = () => {
             </Form>
           )}
         </Formik>
-        <button
-          type="button"
-          onClick={() => {
-            submitMessage();
-          }}
-        >
-          SEND EMAIL
-        </button>
       </ReactModal>
     </section>
   );
