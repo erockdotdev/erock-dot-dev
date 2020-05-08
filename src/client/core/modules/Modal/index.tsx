@@ -11,11 +11,11 @@ const Modal: React.FC<Props> = props => {
   const openModal = () => {
     setModalOpen(true);
   };
-
   const closeModal = () => {
     setModalOpen(false);
   };
   const { children, buttonLabel } = props;
+
   return (
     <section className="modal__container">
       <button

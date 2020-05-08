@@ -1,8 +1,12 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/typography.scss';
 
-.contact-form {
+.formik-field {
   &__container {
     display: flex;
     flex-direction: column;
+    &__error {
+      color: $alert-red;
+    }
   }
 }

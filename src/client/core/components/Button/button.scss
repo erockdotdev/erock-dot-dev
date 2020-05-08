@@ -1,0 +1,51 @@
+@import '~styles/_typography.scss';
+@import '~styles/config/_colors.scss';
+$btn-width: 200px;
+$btn-padding: 10px;
+
+.button__container {
+  width: 200px;
+
+  &--dark {
+    @include Button;
+
+    width: $btn-width;
+    padding: $btn-padding;
+    border: solid $white 2px;
+    background-color: $black;
+    color: $white;
+
+    &--disabled {
+      color: $dark-grey;
+      border: solid $light-grey 2px;
+      background-color: $light-grey;
+    }
+
+    &:active {
+      background-color: $dark-grey;
+      border: solid $light-grey 2px;
+    }
+  }
+
+  &--light {
+    @include Button;
+
+    width: $btn-width;
+    padding: $btn-padding;
+    border: solid $black 2px;
+    background-color: $white;
+    color: $black;
+
+    &--disabled {
+      background-color: $light-grey;
+      color: $medium-grey;
+      border: solid $light-grey 2px;
+    }
+
+    &:active {
+      background-color: $light-grey;
+      border: $medium-grey;
+      color: $medium-grey;
+    }
+  }
+}

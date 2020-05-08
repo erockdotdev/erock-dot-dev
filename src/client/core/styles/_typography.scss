@@ -17,6 +17,11 @@
   font-family: 'Open Sans Regular', sans-serif;
   cursor: pointer;
 }
+@mixin Button {
+  font-size: 20px;
+  font-family: 'Open Sans Regular', sans-serif;
+  cursor: pointer;
+}
 @mixin Link {
   border: none;
 }
