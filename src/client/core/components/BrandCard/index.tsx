@@ -20,7 +20,7 @@ const ProjectSlide: React.FC<Props> = ({ brandData }) => {
 
   return (
     <section className="brand-card__container">
-      <img src={url} alt={description} />
+      <img src={url} alt={description} title={description} />
     </section>
   );
 };

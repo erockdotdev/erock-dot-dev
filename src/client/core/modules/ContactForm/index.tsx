@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
@@ -17,6 +17,7 @@ type values = {
 };
 
 const ContactForm: React.FC<Props> = props => {
+  const [submitContactError, setSubmitContactError] = useState('');
   const { handleToggleModal } = props;
   const submitMessage = (
     values: values,
@@ -37,6 +38,9 @@ const ContactForm: React.FC<Props> = props => {
       .catch(error => {
         // eslint-disable-next-line no-console
         console.error('error in app', error);
+        setSubmitContactError(
+          "Sorry, that message didn't go through. Please try again."
+        );
         // @todo handle API respose error
         setSubmitting(false);
       });
@@ -99,6 +103,11 @@ const ContactForm: React.FC<Props> = props => {
               fieldType="textarea"
             />
             <Button label="Submit" disabled={isSubmitting} type="submit" />
+            {submitContactError && (
+              <p className="contact-form__container__send-email-error">
+                {submitContactError}
+              </p>
+            )}
           </Form>
         )}
       </Formik>
