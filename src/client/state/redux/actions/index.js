@@ -4,7 +4,8 @@ import {
   FETCH_CURRENT_USER,
   FETCH_ADMINS,
   FETCH_ABOUT_PAGE,
-  FETCH_HOME_PAGE
+  FETCH_HOME_PAGE,
+  UI_TOGGLE_MODAL
 } from '../types';
 
 export const fetchUsers = () => async (dispatch, getState, api) => {
@@ -52,3 +53,7 @@ export const fetchAboutPage = () => async dispatch => {
     payload: res
   });
 };
+// @todo create app actions folder and move there
+export const toggleModal = () => ({
+  type: UI_TOGGLE_MODAL
+});

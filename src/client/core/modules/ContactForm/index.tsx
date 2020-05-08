@@ -1,63 +1,77 @@
 import React from 'react';
 import axios from 'axios';
 import { Formik, Form } from 'formik';
+import { connect } from 'react-redux';
 import FormikField from '@components/form-fields/FormikField';
-import Button from '@components/button';
+import Button from '@components/Button';
+import { toggleModal } from '@redux/actions';
 import './contact-form.scss';
+
+type Props = {
+  handleToggleModal: () => {};
+};
 
 type values = {
   email: string | null;
   message: string | null;
 };
 
-function submitMessage(values: values, setSubmitting: (arg0: boolean) => void) {
-  const { email, message } = values;
-  console.log('is this runnign?');
-  axios
-    .post('/contact', {
-      email,
-      message
-    })
-    .then(response => {
-      console.log('response in app', response);
-      // this is where I'll need to call the toggle modal action
-      setSubmitting(false);
-    })
-    .catch(error => {
-      // eslint-disable-next-line no-console
-      console.error('error in app', error);
-      // handle API respose error
-      setSubmitting(false);
-    });
-  setSubmitting(false);
-}
-
-function contactFormValidation(values: values) {
-  let hasErrors: boolean | null = null;
-  const errors: values = {
-    email: '',
-    message: ''
+const ContactForm: React.FC<Props> = props => {
+  const { handleToggleModal } = props;
+  const submitMessage = (
+    values: values,
+    setSubmitting: (arg0: boolean) => void
+  ) => {
+    const { email, message } = values;
+    axios
+      .post('/contact', {
+        email,
+        message
+      })
+      .then(response => {
+        // eslint-disable-next-line no-console
+        console.log('response in app', response);
+        handleToggleModal();
+        setSubmitting(false);
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.error('error in app', error);
+        // @todo handle API respose error
+        setSubmitting(false);
+      });
+    setSubmitting(false);
   };
 
-  if (!values.email) {
-    errors.email = 'Required';
-    hasErrors = true;
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    hasErrors = true;
-    errors.email = 'Invalid email address';
-  }
+  const contactFormValidation = (values: values) => {
+    let hasErrors: boolean = true;
+    const errors: values = {
+      email: '',
+      message: ''
+    };
 
-  if (!values.message) {
-    hasErrors = true;
-    errors.message = 'Required';
-  }
+    if (!values.email) {
+      errors.email = 'Required';
+      hasErrors = true;
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      hasErrors = true;
+      errors.email = 'Invalid email address';
+    } else {
+      hasErrors = false;
+    }
 
-  const returnErrors = hasErrors ? errors : {};
+    if (!values.message) {
+      hasErrors = true;
+      errors.message = 'Required';
+    } else {
+      hasErrors = false;
+    }
 
-  return returnErrors;
-}
+    const returnErrors = hasErrors ? errors : {};
 
-const ContactForm: React.FC = () => {
+    return returnErrors;
+  };
+
   return (
     <section className="contact-form__container">
       <Formik
@@ -92,4 +106,8 @@ const ContactForm: React.FC = () => {
   );
 };
 
-export default ContactForm;
+const mapStateToProps = {
+  handleToggleModal: toggleModal
+};
+
+export default connect(null, mapStateToProps)(ContactForm);

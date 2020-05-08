@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal as ReactModal } from 'react-responsive-modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleModalSelector } from '@redux/selectors';
+import { toggleModal } from '@redux/actions';
 import './modal.scss';
 
 type Props = {
@@ -7,12 +10,13 @@ type Props = {
 };
 
 const Modal: React.FC<Props> = props => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const modalOpen = useSelector(toggleModalSelector);
   const openModal = () => {
-    setModalOpen(true);
+    dispatch(toggleModal());
   };
   const closeModal = () => {
-    setModalOpen(false);
+    dispatch(toggleModal());
   };
   const { children, buttonLabel } = props;
 
