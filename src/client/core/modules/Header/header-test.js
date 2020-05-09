@@ -25,4 +25,8 @@ describe('Component: Brands', () => {
   it('renders without crashing', () => {
     expect(wrapper.exists()).toBe(true);
   });
+  // it('contains brand icon', () => {
+  //   console.log(wrapper.debug());
+  //   expect(wrapper.containsMatchingElement('BrandIcon')).toBe(true);
+  // });
 });

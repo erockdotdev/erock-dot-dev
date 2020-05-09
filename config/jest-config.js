@@ -38,7 +38,7 @@ module.exports = {
     '^@scaffolding(.*)$': '<rootDir>/src/client/core/scaffolding$1',
     '^@components(.*)$': '<rootDir>/src/client/core/components$1',
     '^@pages(.*)$': '<rootDir>/src/client/core/pages$1',
-    '^@modules(.*)$': '<rootDir>/src/client/modules$1',
+    '^@modules(.*)$': '<rootDir>/src/client/core/modules$1',
     '^@mocks(.*)$': '<rootDir>/src/client/state/mocks$1',
     '^styles(.*)$': '<rootDir>/src/client/core/styles$1',
     '^@assets(.*)$': '<rootDir>/src/client/core/assets$1',
