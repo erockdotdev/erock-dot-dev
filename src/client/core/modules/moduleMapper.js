@@ -1,9 +1,11 @@
 import ProjectsGallery from '@modules/ProjectsGallery';
-import moduleBrands from '@modules/Brands';
+import Brands from '@modules/Brands';
+import About from '@modules/About';
 
 const Modules = {};
 
 Modules.moduleProjectsGallery = ProjectsGallery;
-Modules.moduleBrands = moduleBrands;
+Modules.moduleBrands = Brands;
+Modules.moduleAbout = About;
 
 export default Modules;

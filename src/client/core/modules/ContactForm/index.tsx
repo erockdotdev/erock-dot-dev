@@ -41,7 +41,6 @@ const ContactForm: React.FC<Props> = props => {
         setSubmitContactError(
           "Sorry, that message didn't go through. Please try again."
         );
-        // @todo handle API respose error
         setSubmitting(false);
       });
     setSubmitting(false);

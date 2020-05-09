@@ -1,0 +1,13 @@
+@import '~styles/config/_colors.scss';
+
+.about {
+  &__container {
+    &__skills {
+      display: flex;
+      margin-top: 75px;
+      ul {
+        list-style: none;
+      }
+    }
+  }
+}
