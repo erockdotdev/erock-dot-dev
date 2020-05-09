@@ -13,23 +13,16 @@
     box-sizing: border-box;
     background: linear-gradient(to bottom, $black, transparent);
     z-index: 1;
+    &__brand-icon {
+      text-decoration: none;
+    }
   }
+
   &__nav-link {
     padding: 0 5px;
     color: $white;
     text-decoration: none;
     @include NavLink;
-  }
-  &__brand-logo {
-    color: $white;
-    display: initial;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Rustproof Body', sans-serif;
-    font-size: 35px;
-    letter-spacing: -2px;
-    color: $white;
-    -webkit-text-stroke: $black 1px;
   }
   &__right {
     display: flex;
