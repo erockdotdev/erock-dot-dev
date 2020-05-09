@@ -1,15 +1,8 @@
 .projects-gallery {
   &__container {
     &__inner {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin: 0 -10px 0 -10px;
       border: solid black 5px;
-      &__group {
-        display: flex;
-        flex-wrap: wrap;
-      }
+      height: 450px;
     }
   }
 }
