@@ -31,17 +31,17 @@
         opacity: 1;
       }
       &__scroll {
-        background: black;
+        background: $black;
         transition: all 1s linear;
       }
     }
   }
 
   &__nav-link {
-    padding: 0 5px;
-    color: $white;
-    text-decoration: none;
     @include NavLink;
+    &--active {
+      @include NavLinkActive;
+    }
   }
   &__right {
     display: flex;

@@ -15,7 +15,28 @@
 @mixin NavLink {
   font-size: 16px;
   font-family: 'Open Sans Regular', sans-serif;
+  padding: 0 5px;
+  width: 60px;
+  color: $light-grey;
+  text-decoration: none;
+  transition: color 300ms linear;
+  transition: color 300ms linear;
   cursor: pointer;
+  &:hover {
+    color: $medium-grey;
+    transition: color 300ms linear;
+  }
+}
+@mixin NavLinkActive {
+  font-size: 16px;
+  font-family: 'Open Sans Bold', sans-serif;
+  color: $white;
+  cursor: pointer;
+  transition: color 300ms linear;
+  &:hover {
+    color: $white;
+    transition: color 300ms linear;
+  }
 }
 @mixin Button {
   font-size: 20px;

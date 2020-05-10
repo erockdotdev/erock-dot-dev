@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Modal from '@modules/Modal/index';
 import ContactForm from '@modules/ContactForm';
 import BrandIcon from '@components/BrandIcon';
@@ -42,16 +42,25 @@ class Header extends React.Component<{}, State> {
     return (
       <nav>
         <div className={navClass}>
-          <Link className="nav__container__brand-icon" to="/">
+          <NavLink className="nav__container__brand-icon" to="/">
             <BrandIcon />
-          </Link>
+          </NavLink>
           <div className="nav__right">
-            <Link className="nav__nav-link" to="/">
+            <NavLink
+              className="nav__nav-link"
+              activeClassName="nav__nav-link nav__nav-link--active"
+              exact
+              to="/"
+            >
               Home
-            </Link>
-            <Link className="nav__nav-link" to="/about">
+            </NavLink>
+            <NavLink
+              className="nav__nav-link"
+              activeClassName="nav__nav-link nav__nav-link--active"
+              to="/about"
+            >
               About
-            </Link>
+            </NavLink>
             <div className="nav__nav-link">
               <Modal buttonLabel="Contact">
                 <ContactForm />
