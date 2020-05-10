@@ -8,7 +8,7 @@ import {
   screenDimensions
 } from '@custom-types/index';
 import withScreenDimensions from '@components/hocs/screen_dimensions.jsx';
-import CTALink from '@components/CTALink';
+import UILink from '@components/UILink';
 import BackgroundImage from '@components/BackgroundImage';
 import BackgroundVideo from '@components/BackgroundVideo';
 import './hero.scss';
@@ -21,7 +21,7 @@ const renderLinks = (ctaLinks: componentLink[]): React.ReactNodeArray => {
     return (
       link && (
         <React.Fragment key={id}>
-          <CTALink link={link} />
+          <UILink link={link} className="ui-link__light" />
         </React.Fragment>
       )
     );

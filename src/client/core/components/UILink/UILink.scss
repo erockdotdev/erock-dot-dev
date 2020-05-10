@@ -1,0 +1,10 @@
+@import '~styles/config/_colors.scss';
+
+.ui-link {
+  &__container {
+    color: $black;
+  }
+  &__light {
+    color: $white;
+  }
+}

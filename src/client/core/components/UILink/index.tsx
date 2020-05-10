@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { componentLink } from '@custom-types/index';
-import './CTALink.scss';
+import classNames from 'classnames';
+import './UILink.scss';
 
-type Props = {
+interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   link: componentLink;
-};
+}
 
-const CTALink: React.FC<Props> = ({ link }) => {
+const UILink: React.FC<LinkProps> = ({ link, className }) => {
   const {
     fields: { linkLabel, linkPath, isExternalLink, openInNewTab }
   } = link;
 
+  const linkClass = classNames('ui-link__container', className);
+
   const renderLink = isExternalLink ? (
     <a
+      className={linkClass}
       href={linkPath}
       target={openInNewTab ? '_blank' : undefined}
       rel={openInNewTab ? 'noopener noreferrer' : undefined}
@@ -22,6 +26,7 @@ const CTALink: React.FC<Props> = ({ link }) => {
     </a>
   ) : (
     <Link
+      className={linkClass}
       to={linkPath}
       target={openInNewTab ? '_blank' : undefined}
       rel={openInNewTab ? 'noopener noreferrer' : undefined}
@@ -30,7 +35,7 @@ const CTALink: React.FC<Props> = ({ link }) => {
     </Link>
   );
 
-  return <div className="CTALink__container">{renderLink}</div>;
+  return renderLink;
 };
 
-export default CTALink;
+export default UILink;
