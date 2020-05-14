@@ -100,7 +100,7 @@ export interface Project {
   fields: {
     projectTitle: string;
     subtitle: string;
-    thumbnail: image;
+    thumbnail: componentImage;
     entryAsSlideCta: componentLink;
   };
   sys: sys;

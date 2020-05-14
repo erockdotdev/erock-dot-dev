@@ -1,5 +1,4 @@
 import React from 'react';
-import { chunk } from 'lodash';
 import { Project } from '@custom-types/index';
 import ProjectCard from '@components/ProjectCard';
 import Slider from 'react-slick';
@@ -27,16 +26,6 @@ function renderProjects(projects: Project[]) {
   );
 }
 
-// function renderGroup(projects: Project[]): React.ReactNode {
-//   const groupProjects = chunk(projects, 2);
-//   return groupProjects.map((group, index) => {
-//     const key = `group-${index}`;
-//     return (
-//       <div key={key} className="projects-gallery__container__inner__group">
-//         {renderProjects(group)}
-//       </div>
-//     );
-//   });
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -50,6 +39,7 @@ function SampleNextArrow(props) {
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
+  console.log('props', props);
   return (
     <div
       className={className}
@@ -73,7 +63,7 @@ const ProjectsGallery: React.FC<Props> = ({ fields }) => {
   };
   return (
     <section className="projects-gallery__container">
-      I am a {sectionTitle}!
+      <span className="projects-gallery__container__title">{sectionTitle}</span>
       <div className="projects-gallery__container__inner">
         <Slider {...settings}>{renderProjects(projects)}</Slider>
       </div>
