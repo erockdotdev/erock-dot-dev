@@ -58,7 +58,7 @@ export type componentImage = {
 export type componentLink = {
   fields: {
     title: string;
-    linkLabel: string;
+    linkLabel?: string;
     linkPath: string;
     isExternalLink: boolean;
     openInNewTab: boolean;

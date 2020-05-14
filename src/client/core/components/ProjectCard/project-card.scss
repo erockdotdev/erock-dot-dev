@@ -24,9 +24,11 @@
       align-items: center;
       text-align: center;
       background: rgba(0, 0, 0, 0.8);
-      transition: opacity 500ms ease-in;
-      &:hover {
-        transition: opacity 500ms ease-in;
+      transition: opacity 400ms ease-in;
+      &:hover,
+      &:active,
+      &:focus {
+        transition: opacity 400ms ease-in;
         opacity: 1;
       }
     }

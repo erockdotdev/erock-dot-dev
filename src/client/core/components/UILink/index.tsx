@@ -8,7 +8,7 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   link: componentLink;
 }
 
-const UILink: React.FC<LinkProps> = ({ link, className }) => {
+const UILink: React.FC<LinkProps> = ({ link, className, children }) => {
   const {
     fields: { linkLabel, linkPath, isExternalLink, openInNewTab }
   } = link;
@@ -22,7 +22,7 @@ const UILink: React.FC<LinkProps> = ({ link, className }) => {
       target={openInNewTab ? '_blank' : undefined}
       rel={openInNewTab ? 'noopener noreferrer' : undefined}
     >
-      {linkLabel}
+      {children || linkLabel}
     </a>
   ) : (
     <Link
@@ -31,7 +31,7 @@ const UILink: React.FC<LinkProps> = ({ link, className }) => {
       target={openInNewTab ? '_blank' : undefined}
       rel={openInNewTab ? 'noopener noreferrer' : undefined}
     >
-      {linkLabel}
+      {children || linkLabel}
     </Link>
   );
 

@@ -10,20 +10,30 @@ type Props = {
 
 const ProjectSlide: React.FC<Props> = ({ projectData }) => {
   const {
-    fields: { projectTitle, subtitle, thumbnail, entryAsSlideCta }
+    fields: {
+      projectTitle,
+      subtitle,
+      thumbnail,
+      entryAsSlideCta,
+      entryAsSlideCta: {
+        fields: { linkLabel }
+      }
+    }
   } = projectData;
 
   return (
-    <section className="project-card__container">
-      <Image imageData={thumbnail} />
-      <div className="project-card__container__content">
-        <div className="project-card__container__inner">
-          <p>{projectTitle}</p>
-          <p>{subtitle}</p>
-          <UILink link={entryAsSlideCta} />
+    <UILink link={entryAsSlideCta}>
+      <section className="project-card__container" tabIndex={0}>
+        <Image imageData={thumbnail} />
+        <div className="project-card__container__content">
+          <div className="project-card__container__inner">
+            <p>{projectTitle}</p>
+            <p>{subtitle}</p>
+            <p>{linkLabel}</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </UILink>
   );
 };
 
