@@ -5,7 +5,7 @@ import { mount } from '@components/CTALink/node_modules/enzyme';
 import thunk from '@components/CTALink/node_modules/redux-thunk';
 import configureStore from '@components/CTALink/node_modules/redux-mock-store';
 import initialState from '@mocks/state.json';
-import BackgroundImage from './index';
+import Image from './index';
 
 describe('Component: Image', () => {
   let wrapper;
@@ -17,7 +17,7 @@ describe('Component: Image', () => {
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <BackgroundImage />
+          <Image />
         </MemoryRouter>
       </Provider>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import './about.scss';
-import BackgroundImage from '@components/BackgroundImage';
+import Image from '@components/ImageComponent';
 import { BackgroundType, componentImage } from '@custom-types/index';
 
 type Props = {
@@ -26,7 +26,7 @@ const About: React.FC<Props> = ({ fields }) => {
 
   return (
     <section className="about__container">
-      {isImage && <BackgroundImage imageData={media} />}
+      {isImage && <Image imageData={media} />}
       <div className="about__container__skills">
         <div>
           <h2>Core Skills</h2>

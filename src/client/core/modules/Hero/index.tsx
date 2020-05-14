@@ -9,7 +9,7 @@ import {
 } from '@custom-types/index';
 import withScreenDimensions from '@components/hocs/screen_dimensions.jsx';
 import UILink from '@components/UILink';
-import BackgroundImage from '@components/BackgroundImage';
+import Image from '@components/ImageComponent';
 import BackgroundVideo from '@components/BackgroundVideo';
 import './hero.scss';
 
@@ -30,7 +30,7 @@ const renderLinks = (ctaLinks: componentLink[]): React.ReactNodeArray => {
 const renderBackgroundImage = (
   background: componentImage
 ): React.ReactElement => {
-  return <BackgroundImage imageData={background} />;
+  return <Image imageData={background} />;
 };
 const renderBackgroundVideo = (
   background: componentVideo
