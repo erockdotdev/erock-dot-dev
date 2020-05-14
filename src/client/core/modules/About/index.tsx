@@ -26,6 +26,7 @@ const About: React.FC<Props> = ({ fields }) => {
 
   return (
     <section className="about__container">
+      {isImage && <BackgroundImage imageData={media} />}
       <div className="about__container__skills">
         <div>
           <h2>Core Skills</h2>
@@ -36,7 +37,7 @@ const About: React.FC<Props> = ({ fields }) => {
           <ul>{renderSkills(otherSkills)}</ul>
         </div>
       </div>
-      {isImage && <BackgroundImage imageData={media} />}
+
       <h1>{headline}</h1>
       <p>{about}</p>
     </section>

@@ -8,16 +8,19 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 75vh;
     position: relative;
     color: $white;
-    margin: -25px -25px 0 -25px;
+    overflow: hidden;
+    position: relative;
     &__content {
       display: flex;
       flex-direction: column;
       text-align: right;
       background: linear-gradient(to top, black, transparent);
       padding: 25px;
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
       &__headline {
         font-size: 75px;
         line-height: 75px;
@@ -31,12 +34,7 @@
       }
     }
     &__background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
+      max-height: 90vh;
     }
   }
   @include breakpoint($bp--md) {

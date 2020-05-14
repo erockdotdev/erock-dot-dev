@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '@custom-types/index';
-import CTALink from '@components/CTALink';
+import UILink from '@components/UILink';
 import './project-card.scss';
 
 type Props = {
@@ -27,7 +27,7 @@ const ProjectSlide: React.FC<Props> = ({ projectData }) => {
       <p>{projectTitle}</p>
       <p>{subtitle}</p>
       <img src={url} alt={description} />
-      <CTALink link={entryAsSlideCta} />
+      <UILink link={entryAsSlideCta} />
     </section>
   );
 };
