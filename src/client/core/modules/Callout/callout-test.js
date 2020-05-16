@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import initialState from '@mocks/state.json';
-import Callout from './index';
+import Footer from './index';
 
 describe('Component: Header', () => {
   let wrapper;
@@ -17,7 +17,7 @@ describe('Component: Header', () => {
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <Callout />
+          <Footer />
         </MemoryRouter>
       </Provider>
     );

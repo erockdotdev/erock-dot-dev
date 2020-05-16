@@ -29,6 +29,13 @@ export interface Brands {
     artistsHeadline: string;
   };
 }
+export interface Callout {
+  fields: {
+    headline: string;
+    subcopy: string;
+    media: componentImage;
+  };
+}
 
 type file = {
   contentType: string;

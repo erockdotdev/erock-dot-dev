@@ -2,6 +2,7 @@
 
 .footer {
   &__container {
+    border-top: solid $light-grey 2px;
     height: 100px;
     display: flex;
     flex-direction: column;

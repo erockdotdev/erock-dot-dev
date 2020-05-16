@@ -1,0 +1,26 @@
+@import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+.callout {
+  &__container {
+    display: flex;
+    div {
+      width: 50%;
+    }
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 200px;
+    }
+    @include breakpoint($bp--md) {
+      flex-direction: column-reverse;
+      div {
+        width: 100%;
+      }
+    }
+  }
+}
