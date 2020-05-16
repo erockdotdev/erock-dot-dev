@@ -1,6 +1,7 @@
 import React from 'react';
 import { Project } from '@custom-types/index';
 import ProjectCard from '@components/ProjectCard';
+import CarouselArrow from '@components/CarouselArrow';
 import Slider from 'react-slick';
 import './projects-gallery.scss';
 import classNames from 'classnames';
@@ -37,68 +38,28 @@ const ProjectsGallery: React.FC<Props> = ({ fields }) => {
     dots: false,
     infinite: false,
     draggable: false,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <CarouselArrow isNext />,
+    prevArrow: <CarouselArrow isPrev />,
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
           initialSlide: 1,
           draggable: true,
+
+          /**
+           * using blank divs for previous and next arrow
+           * as arrow flase causes slider to not render on mobile
+           */
+
           nextArrow: <div />,
           prevArrow: <div />
         }
       }
     ]
   };
-  function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    const isDisabled = className.includes('slick-disabled');
-    const nextArrowClassNames = classNames(
-      className,
-      'projects-gallery__container__next-arrow',
-      {
-        'projects-gallery__container__hide-arrow': isDisabled
-      }
-    );
-    return (
-      <div
-        className={nextArrowClassNames}
-        style={{ ...style, background: 'black' }}
-        onClick={onClick}
-        onKeyDown={onClick}
-        role="button"
-        aria-label="Slider Next Button"
-        tabIndex={0}
-      />
-    );
-  }
-
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    const isDisabled = className.includes('slick-disabled');
-    const prevArrowClassNames = classNames(
-      className,
-      'projects-gallery__container__prev-arrow',
-      {
-        'projects-gallery__container__hide-arrow': isDisabled
-      }
-    );
-
-    return (
-      <div
-        className={prevArrowClassNames}
-        style={{ ...style, background: 'black' }}
-        onClick={onClick}
-        onKeyDown={onClick}
-        role="button"
-        aria-label="Slider Previous Button"
-        tabIndex={0}
-      />
-    );
-  }
 
   return (
     <section className="projects-gallery__container">
