@@ -9,7 +9,6 @@ $btn-padding: 10px;
   align-items: center;
   width: 35px;
   opacity: 0.9;
-  z-index: 1;
   height: 99%;
   transition: opacity 300ms ease-in;
   &--next {
@@ -17,6 +16,7 @@ $btn-padding: 10px;
   }
   &--prev {
     left: 0px;
+    z-index: 1;
   }
   &--hide {
     opacity: 0;

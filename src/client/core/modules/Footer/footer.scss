@@ -1,11 +1,13 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
 
 .footer {
   &__container {
     border-top: solid $light-grey 2px;
-    height: 100px;
     display: flex;
     flex-direction: column;
+    padding: $body-padding;
+    background-color: $white-ghost;
     &__links {
       display: flex;
       justify-content: center;
