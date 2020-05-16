@@ -48,12 +48,10 @@ const ProjectsGallery: React.FC<Props> = ({ fields }) => {
           slidesToScroll: 1,
           initialSlide: 1,
           draggable: true,
-
           /**
            * using blank divs for previous and next arrow
            * as arrow flase causes slider to not render on mobile
            */
-
           nextArrow: <div />,
           prevArrow: <div />
         }

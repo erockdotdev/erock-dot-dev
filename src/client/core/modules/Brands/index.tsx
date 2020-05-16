@@ -1,16 +1,15 @@
 import React from 'react';
 import BrandCard from '@components/BrandCard';
-import { componentImage } from '@custom-types/index';
+import {
+  componentImage,
+  Brands as BrandsType,
+  screenDimensions
+} from '@custom-types/index';
+import withScreenDimensions from '@components/hocs/screen_dimensions.jsx';
+import chunk from 'lodash/chunk';
 import './brands.scss';
 
-type Props = {
-  fields: {
-    headline: string;
-    subcopy: string;
-    brands: componentImage[];
-    artists: componentImage[];
-  };
-};
+type Props = BrandsType & screenDimensions;
 
 function renderBrands(brands: componentImage[]): React.ReactNode {
   return brands.map((brand: componentImage) => {
@@ -19,28 +18,56 @@ function renderBrands(brands: componentImage[]): React.ReactNode {
   });
 }
 
-const Brands: React.FC<Props> = ({ fields }) => {
-  const { headline, subcopy, brands, artists } = fields;
+function renderBrandGroup(
+  brands: componentImage[],
+  isMobile: boolean
+): React.ReactNode {
+  const chunkGroup = isMobile ? 3 : 2;
+  const groupBrands = chunk(brands, chunkGroup);
+  return groupBrands.map((group: componentImage[]) => {
+    return (
+      <div className="brands__container__logo-inner__brand-group">
+        {renderBrands(group)}
+      </div>
+    );
+  });
+}
+
+const Brands: React.FC<Props> = props => {
+  const {
+    fields: {
+      headline,
+      subcopy,
+      brands,
+      brandsHeadline,
+      artists,
+      artistsHeadline
+    },
+    isMobile
+  } = props;
   return (
     <section className="brands__container">
       <div className="brands__container__headline">
         <p>{headline}</p>
         <p>{subcopy}</p>
       </div>
+      <hr />
       <div className="brands__container__logo-wrapper">
-        <h3>Brands</h3>
+        <h3>{brandsHeadline}</h3>
         <div className="brands__container__logo-inner">
-          {renderBrands(brands)}
+          {renderBrandGroup(brands, isMobile)}
         </div>
       </div>
+      <hr />
       <div className="brands__container__logo-wrapper">
-        <h3>Artists</h3>
+        <h3>{artistsHeadline}</h3>
         <div className="brands__container__logo-inner">
-          {renderBrands(artists)}
+          {renderBrandGroup(artists, isMobile)}
         </div>
       </div>
+      <hr />
     </section>
   );
 };
 
-export default Brands;
+export default withScreenDimensions(Brands);

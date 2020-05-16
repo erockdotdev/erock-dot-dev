@@ -19,6 +19,16 @@ export interface Hero {
     sys: sys;
   };
 }
+export interface Brands {
+  fields: {
+    headline: string;
+    subcopy: string;
+    brands: componentImage[];
+    brandsHeadline: string;
+    artists: componentImage[];
+    artistsHeadline: string;
+  };
+}
 
 type file = {
   contentType: string;
