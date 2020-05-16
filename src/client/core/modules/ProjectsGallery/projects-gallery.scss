@@ -1,7 +1,31 @@
+@import '~styles/_typography.scss';
+@import '~styles/config/_colors.scss';
+.slick-slide {
+  height: auto;
+}
 .projects-gallery {
   &__container {
-    &__inner {
-      height: 250px;
+    padding-bottom: 25px;
+    &__next-arrow,
+    &__prev-arrow {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      opacity: 0.9;
+      z-index: 1;
+      height: 99%;
+      transition: opacity 300ms ease-in;
+    }
+    &__next-arrow {
+      right: 0px;
+    }
+    &__prev-arrow {
+      left: 0px;
+    }
+    &__hide-arrow {
+      opacity: 0;
+      transition: opacity 300ms ease-in;
     }
   }
 }
