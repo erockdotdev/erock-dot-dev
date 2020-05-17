@@ -1,5 +1,7 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import './about.scss';
+import FormatRichTextField from '@utils/contentful-rich-text-formatting';
 import Image from '@components/ImageComponent';
 import { BackgroundType, componentImage } from '@custom-types/index';
 
@@ -20,13 +22,17 @@ function renderSkills(coreSkills: string[]): React.ReactNodeArray {
 
 const About: React.FC<Props> = ({ fields }) => {
   const { headline, about, media, coreSkills, otherSkills } = fields;
-
   const { id } = media.sys.contentType.sys;
   const isImage = id === BackgroundType.image;
+  const formatAbout = FormatRichTextField(about);
 
   return (
     <section className="about__container">
       {isImage && <Image imageData={media} />}
+      <div className="about__container__about-info">
+        <h1>{headline}</h1>
+        {formatAbout}
+      </div>
       <div className="about__container__skills">
         <div>
           <h2>Core Skills</h2>
@@ -37,9 +43,6 @@ const About: React.FC<Props> = ({ fields }) => {
           <ul>{renderSkills(otherSkills)}</ul>
         </div>
       </div>
-
-      <h1>{headline}</h1>
-      <p>{about}</p>
     </section>
   );
 };
