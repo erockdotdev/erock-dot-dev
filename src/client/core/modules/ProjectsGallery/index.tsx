@@ -30,7 +30,6 @@ function renderProjects(projects: Project[]) {
 
 const ProjectsGallery: React.FC<Props> = ({ fields }) => {
   const { sectionTitle, projects } = fields;
-
   const settings = {
     speed: 500,
     slidesToShow: 3.5,
@@ -48,12 +47,7 @@ const ProjectsGallery: React.FC<Props> = ({ fields }) => {
           slidesToScroll: 1,
           initialSlide: 1,
           draggable: true,
-          /**
-           * using blank divs for previous and next arrow
-           * as arrow flase causes slider to not render on mobile
-           */
-          nextArrow: <div />,
-          prevArrow: <div />
+          arrows: false
         }
       }
     ]

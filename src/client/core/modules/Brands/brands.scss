@@ -1,7 +1,35 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import '~styles/_typography.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
 
 .brands {
   &__container {
+    background: #1d1d1d;
+    color: $white;
+    padding: 50px $body-padding;
+    position: relative;
+    overflow: hidden;
+    &__headline {
+      margin-bottom: 40px;
+      display: inline-block;
+      background: $black;
+      padding: 20px 30px 20px 50px;
+      left: -50px;
+      position: relative;
+      transform: skew(-20deg);
+      z-index: 1;
+      h2 {
+        @include h2;
+      }
+      &__inner {
+        transform: skew(20deg);
+      }
+    }
+    &__logo-wrapper {
+      position: relative;
+      z-index: 1;
+    }
     &__logo-inner {
       display: flex;
       flex-wrap: wrap;
@@ -11,6 +39,28 @@
       &__brand-group {
         display: flex;
         justify-content: center;
+        &__filler-brand {
+          width: 85px;
+          max-width: 85px;
+          min-width: 85px;
+          height: 85px;
+          margin: 10px;
+          padding: 5px;
+        }
+      }
+    }
+    &__background-bar {
+      background: $black;
+      display: initial;
+      height: 100%;
+      width: 200px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 0;
+      transform: skew(-20deg);
+      @include breakpoint($bp--md) {
+        transform: skew(0);
       }
     }
   }

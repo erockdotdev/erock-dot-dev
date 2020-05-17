@@ -1,10 +1,18 @@
 @import '~styles/_typography.scss';
 @import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
 .slick-slide {
   height: auto;
 }
 .projects-gallery {
   &__container {
     padding-bottom: 25px;
+    &__title {
+      @include h2;
+      padding-left: $body-padding;
+    }
+    &__inner {
+      margin-top: 5px;
+    }
   }
 }

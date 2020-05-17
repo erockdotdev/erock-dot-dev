@@ -3,11 +3,10 @@
 
 .footer {
   &__container {
-    border-top: solid $light-grey 2px;
     display: flex;
     flex-direction: column;
     padding: $body-padding;
-    background-color: $white-ghost;
+    background-color: $dark-grey2;
     &__links {
       display: flex;
       justify-content: center;
@@ -16,13 +15,21 @@
         img {
           height: 35px;
           width: 35px;
+          filter: invert(1);
+          &:hover {
+            filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+          }
         }
       }
     }
-    &__copyright {
+    &__bottom {
       text-align: center;
       display: flex;
       flex-direction: column;
+      &__copyright {
+        display: inline-block;
+        padding-bottom: 10px;
+      }
     }
   }
 }

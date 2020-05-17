@@ -13,32 +13,33 @@ const Footer = () => {
     <section className="footer__container">
       <div className="footer__container__links">
         <a className="footer__container__links__link" href="/">
+          <img src={linkedin} alt="linkedin" />
+        </a>
+        <a className="footer__container__links__link" href="/">
           <img src={instagram} alt="instagram" />
         </a>
         <a className="footer__container__links__link" href="/">
           <img src={github} alt="github" />
         </a>
         <a className="footer__container__links__link" href="/">
-          <img src={linkedin} alt="linkedin" />
-        </a>
-        <a className="footer__container__links__link" href="/">
           <img src={youtube} alt="youtube" />
         </a>
       </div>
-      <div className="footer__container__copyright">
+      <div className="footer__container__bottom">
+        <span className="footer__container__bottom__copyright">
+          {year}©EROCK.DEV
+        </span>
         <a
           href="https://www.contentful.com/"
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          {/* Other contentful links available herehttps://www.contentful.com/r/knowledgebase/how-attribution-works/ */}
           <img
-            src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
+            src="https://images.ctfassets.net/fo9twyrwpveg/7F5pMEOhJ6Y2WukCa2cYws/398e290725ef2d3b3f0f5a73ae8401d6/PoweredByContentful_DarkBackground.svg"
             style={{ maxWidth: '100px', width: '100%' }}
             alt="Powered by Contentful"
           />
         </a>
-        <span className="">{year}©EROCK.DEV</span>
       </div>
     </section>
   );
