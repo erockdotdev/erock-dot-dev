@@ -4,8 +4,23 @@
   &__container {
     display: flex;
     flex-direction: column;
+    color: $black;
+    width: 300px;
     &__send-email-error {
       color: $error-red;
+    }
+    &__from-email {
+      height: 30px;
+      border: solid $medium-grey 1px;
+      border-radius: 5px;
+    }
+    &__message {
+      height: 150px;
+      border: solid $medium-grey 1px;
+      border-radius: 5px;
+    }
+    &__modal-footer {
+      padding-top: 30px;
     }
   }
 }

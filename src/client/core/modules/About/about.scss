@@ -1,5 +1,6 @@
 @import '~styles/config/_colors.scss';
 @import '~styles/config/_vars.scss';
+@import '~styles/_typography.scss';
 
 .about {
   &__container {
@@ -28,7 +29,7 @@
           }
         }
         &__body {
-          letter-spacing: 1.2;
+          @include Body;
         }
       }
       &__skills {

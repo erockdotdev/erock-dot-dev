@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
+import Recaptcha from 'react-recaptcha';
 import FormikField from '@components/form-fields/FormikField';
 import Button from '@components/Button';
 import { toggleModal } from '@redux/actions';
@@ -75,8 +76,20 @@ const ContactForm: React.FC<Props> = props => {
     return returnErrors;
   };
 
+  const onloadCallback = () => {
+    console.log('recaptcha loaded');
+  };
+  function verifyCallback(res) {
+    if (res) {
+      console.log('recaptcha is valid', res);
+    }
+  }
+
   return (
     <section className="contact-form__container">
+      <div className="contact-form__container__modal-header">
+        <h2>Get in touch!</h2>
+      </div>
       <Formik
         initialValues={{ email: '', message: '' }}
         validate={values => {
@@ -93,6 +106,7 @@ const ContactForm: React.FC<Props> = props => {
               type="email"
               name="email"
               errorComponent="div"
+              className="contact-form__container__from-email"
             />
             <FormikField
               label="Message"
@@ -100,13 +114,25 @@ const ContactForm: React.FC<Props> = props => {
               name="message"
               errorComponent="div"
               fieldType="textarea"
+              className="contact-form__container__message"
             />
-            <Button label="Submit" disabled={isSubmitting} type="submit" />
-            {submitContactError && (
-              <p className="contact-form__container__send-email-error">
-                {submitContactError}
-              </p>
-            )}
+            <div className="contact-form__container__modal-footer">
+              {/* video tutorial  http://127.0.0.1/ https://www.google.com/search?q=how+to+set+up+recaptia+react&oq=how+to+set+up+recaptia+react&aqs=chrome..69i57.11088j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_7ezBXsSTLYfr_Qaqk6bIAQ40 */}
+              <Recaptcha
+                sitekey="6LdB4vgUAAAAAOA7ioqzn4tV1n-8aYfxmuFlzs7G"
+                render="explicit"
+                onloadCallback={() => {
+                  console.log('loaded');
+                }}
+                verifyCallback={verifyCallback}
+              />
+              <Button label="Submit" disabled={isSubmitting} type="submit" />
+              {submitContactError && (
+                <p className="contact-form__container__send-email-error">
+                  {submitContactError}
+                </p>
+              )}
+            </div>
           </Form>
         )}
       </Formik>

@@ -31,6 +31,7 @@ export default (req, store, context) => {
         <script>
           window.INITIAL_STATE = ${serialize(store.getState())}
         </script>
+        <script src="https://www.google.com/recaptcha/api.js?&render=explicit" async defer></script>
         <script src="bundle.js"></script>
     </body>
     </html>

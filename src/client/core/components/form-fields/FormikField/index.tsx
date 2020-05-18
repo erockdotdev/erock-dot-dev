@@ -8,6 +8,7 @@ type Props = {
   name: string;
   errorComponent: string;
   fieldType?: string;
+  className?: string;
 };
 
 const FormikField: React.FC<Props> = props => {
@@ -16,13 +17,14 @@ const FormikField: React.FC<Props> = props => {
     name,
     errorComponent,
     type = 'text',
-    fieldType = 'input'
+    fieldType = 'input',
+    className
   } = props;
   // add logic to toggle classes on text area or input
   return (
     <div className="formik-field__container">
       <label htmlFor={name}>{label}</label>
-      <Field as={fieldType} type={type} name={name} />
+      <Field as={fieldType} type={type} name={name} className={className} />
       <ErrorMessage
         className="formik-field__container__error"
         name={name}
