@@ -30,3 +30,7 @@ Push to staging
 3. git commit -m "commit message"
 4. git push
 5. git push staging develop:master
+
+### Troubleshooting
+
+Occasionally a push to heroku build will fail to build. In this case run `heroku logs --remote staging --tail` to view error logs. Try running `npm start` to build and run a production build and test locally. Also try `heroku releases:retry --remote staging` to rebuild heroku environment
