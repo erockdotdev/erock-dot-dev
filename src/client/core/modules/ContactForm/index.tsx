@@ -19,6 +19,7 @@ type values = {
 
 const ContactForm: React.FC<Props> = props => {
   const [submitContactError, setSubmitContactError] = useState('');
+  const [submitRecaptcha, setSubmitRecaptcha] = useState(false);
   const { handleToggleModal } = props;
   const submitMessage = (
     values: values,
@@ -79,9 +80,10 @@ const ContactForm: React.FC<Props> = props => {
   const onloadCallback = () => {
     console.log('recaptcha loaded');
   };
+
   function verifyCallback(res) {
     if (res) {
-      console.log('recaptcha is valid', res);
+      setSubmitRecaptcha(true);
     }
   }
 
@@ -96,6 +98,7 @@ const ContactForm: React.FC<Props> = props => {
           return contactFormValidation(values);
         }}
         onSubmit={(values, { setSubmitting }) => {
+          if (!submitRecaptcha) return setSubmitting(false);
           submitMessage(values, setSubmitting);
         }}
       >
@@ -119,11 +122,9 @@ const ContactForm: React.FC<Props> = props => {
             <div className="contact-form__container__modal-footer">
               {/* video tutorial  http://127.0.0.1/ https://www.google.com/search?q=how+to+set+up+recaptia+react&oq=how+to+set+up+recaptia+react&aqs=chrome..69i57.11088j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_7ezBXsSTLYfr_Qaqk6bIAQ40 */}
               <Recaptcha
-                sitekey="6LdB4vgUAAAAAOA7ioqzn4tV1n-8aYfxmuFlzs7G"
+                sitekey="6LeA5fgUAAAAAKvGu017bzZPwpkNFU7uh97p9ROA"
                 render="explicit"
-                onloadCallback={() => {
-                  console.log('loaded');
-                }}
+                onloadCallback={onloadCallback}
                 verifyCallback={verifyCallback}
               />
               <Button label="Submit" disabled={isSubmitting} type="submit" />
