@@ -15,9 +15,10 @@ function renderBrands(brands: componentImage[]): React.ReactNode {
 
 function renderBrandGroup(brands: componentImage[]): React.ReactNode {
   const groupBrands = chunk(brands, 3);
-  return groupBrands.map((group: componentImage[]) => {
+  return groupBrands.map((group: componentImage[], index) => {
+    const key = `brand-group-${index}`;
     return (
-      <div className="brands__container__logo-inner__brand-group">
+      <div key={key} className="brands__container__logo-inner__brand-group">
         {renderBrands(group)}
       </div>
     );

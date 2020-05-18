@@ -33,10 +33,6 @@ const Image: React.FC<Props> = ({ imageData, sizes }) => {
           {
             mediaQuery: 'default',
             params: { w: 1800, q: 100 }
-          },
-          {
-            mediaQuery: 'mobile',
-            params: { w: 1800, q: 100 }
           }
         ]
       }

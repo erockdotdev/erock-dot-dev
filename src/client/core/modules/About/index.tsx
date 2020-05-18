@@ -29,18 +29,26 @@ const About: React.FC<Props> = ({ fields }) => {
   return (
     <section className="about__container">
       {isImage && <Image imageData={media} />}
-      <div className="about__container__about-info">
-        <h1>{headline}</h1>
-        {formatAbout}
-      </div>
-      <div className="about__container__skills">
-        <div>
-          <h2>Core Skills</h2>
-          <ul>{renderSkills(coreSkills)}</ul>
+      <div className="about__container__inner">
+        <div className="about__container__inner__about-info">
+          <div className="about__container__inner__about-info__headline">
+            <h2 className="about__container__inner__about-info__headline__inner">
+              {headline}
+            </h2>
+          </div>
+          <div className="about__container__inner__about-info__body">
+            {formatAbout}
+          </div>
         </div>
-        <div>
-          <h2>Other Skills</h2>
-          <ul>{renderSkills(otherSkills)}</ul>
+        <div className="about__container__inner__skills">
+          <div>
+            <h2>Core Skills</h2>
+            <ul>{renderSkills(coreSkills)}</ul>
+          </div>
+          <div>
+            <h2>Other Skills</h2>
+            <ul>{renderSkills(otherSkills)}</ul>
+          </div>
         </div>
       </div>
     </section>

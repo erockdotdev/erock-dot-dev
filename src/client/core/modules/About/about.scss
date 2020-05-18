@@ -1,11 +1,43 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
 
 .about {
   &__container {
-    &__skills {
-      display: flex;
-      ul {
-        list-style: none;
+    background-color: $dark-grey2;
+    &__inner {
+      &__about-info,
+      &__skills {
+        padding: $body-padding;
+      }
+      &__about-info {
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &__headline {
+          margin-bottom: 20px;
+          display: inline-block;
+          background: $black;
+          padding: 20px 30px 20px 50px;
+          left: -50px;
+          position: relative;
+          transform: skew(-20deg);
+          z-index: 1;
+          &__inner {
+            transform: skew(20deg);
+          }
+        }
+        &__body {
+          letter-spacing: 1.2;
+        }
+      }
+      &__skills {
+        display: flex;
+        padding-top: 20px;
+        background-color: $black;
+        ul {
+          list-style: none;
+        }
       }
     }
   }
