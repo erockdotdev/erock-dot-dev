@@ -1,17 +1,22 @@
 import React from 'react';
+import Classnames from 'classnames';
 import './button.scss';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
-}
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Button: React.FC<ButtonProps> = props => {
-  const { disabled, label, className, type = 'submit', onClick } = props;
+  const { disabled, className, type = 'submit', onClick, children } = props;
 
-  const showDisabledTheme = disabled ? 'button__container--dark--disabled' : '';
-  const buttonStyles = className
-    ? `${className}`
-    : `button__container--dark ${showDisabledTheme}`;
+  const showDisabledTheme = Classnames({
+    'button__container--dark--disabled': disabled
+  });
+  const buttonStyles = Classnames(
+    'button__container--dark',
+    {
+      'button__container--dark--disabled': showDisabledTheme
+    },
+    className
+  );
 
   return (
     /*
@@ -25,7 +30,7 @@ const Button: React.FC<ButtonProps> = props => {
       type={type}
       className={buttonStyles}
     >
-      {label}
+      {children}
     </button>
   );
 };

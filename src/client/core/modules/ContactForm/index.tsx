@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Recaptcha from 'react-recaptcha';
 import FormikField from '@components/form-fields/FormikField';
 import Button from '@components/Button';
+import LoadingSpinner from '@components/LoadingSpinner';
 import { toggleModal } from '@redux/actions';
 import './contact-form.scss';
 
@@ -20,12 +21,14 @@ type values = {
 const ContactForm: React.FC<Props> = props => {
   const [submitContactError, setSubmitContactError] = useState('');
   const [submitRecaptcha, setSubmitRecaptcha] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { handleToggleModal } = props;
   const submitMessage = (
     values: values,
     setSubmitting: (arg0: boolean) => void
   ) => {
     const { email, message } = values;
+    setLoading(true);
     axios
       .post('/contact', {
         email,
@@ -36,6 +39,7 @@ const ContactForm: React.FC<Props> = props => {
         console.log('response in app', response);
         handleToggleModal();
         setSubmitting(false);
+        setLoading(false);
       })
       .catch(error => {
         // eslint-disable-next-line no-console
@@ -44,8 +48,8 @@ const ContactForm: React.FC<Props> = props => {
           "Sorry, that message didn't go through. Please try again."
         );
         setSubmitting(false);
+        setLoading(false);
       });
-    setSubmitting(false);
   };
 
   const contactFormValidation = (values: values) => {
@@ -54,7 +58,6 @@ const ContactForm: React.FC<Props> = props => {
       email: '',
       message: ''
     };
-
     if (!values.email) {
       errors.email = 'Required';
       hasErrors = true;
@@ -64,16 +67,13 @@ const ContactForm: React.FC<Props> = props => {
     } else {
       hasErrors = false;
     }
-
     if (!values.message) {
       hasErrors = true;
       errors.message = 'Required';
     } else {
       hasErrors = false;
     }
-
     const returnErrors = hasErrors ? errors : {};
-
     return returnErrors;
   };
 
@@ -90,7 +90,7 @@ const ContactForm: React.FC<Props> = props => {
   return (
     <section className="contact-form__container">
       <div className="contact-form__container__modal-header">
-        <h2>Get in touch!</h2>
+        <h2>CONTACT ME</h2>
       </div>
       <Formik
         initialValues={{ email: '', message: '' }}
@@ -99,7 +99,7 @@ const ContactForm: React.FC<Props> = props => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           if (!submitRecaptcha) return setSubmitting(false);
-          submitMessage(values, setSubmitting);
+          return submitMessage(values, setSubmitting);
         }}
       >
         {({ isSubmitting }) => (
@@ -120,20 +120,31 @@ const ContactForm: React.FC<Props> = props => {
               className="contact-form__container__message"
             />
             <div className="contact-form__container__modal-footer">
-              {/* video tutorial  http://127.0.0.1/ https://www.google.com/search?q=how+to+set+up+recaptia+react&oq=how+to+set+up+recaptia+react&aqs=chrome..69i57.11088j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_7ezBXsSTLYfr_Qaqk6bIAQ40 */}
               <Recaptcha
                 sitekey="6LeA5fgUAAAAAKvGu017bzZPwpkNFU7uh97p9ROA"
                 render="explicit"
                 onloadCallback={onloadCallback}
                 verifyCallback={verifyCallback}
               />
-              <Button label="Submit" disabled={isSubmitting} type="submit" />
+              <Button
+                disabled={isSubmitting}
+                type="submit"
+                className="contact-form__container__modal-footer__button"
+              >
+                Submit
+              </Button>
+
               {submitContactError && (
                 <p className="contact-form__container__send-email-error">
                   {submitContactError}
                 </p>
               )}
             </div>
+            {loading && (
+              <div className="contact-form__container__is-loading">
+                <LoadingSpinner />
+              </div>
+            )}
           </Form>
         )}
       </Formik>
