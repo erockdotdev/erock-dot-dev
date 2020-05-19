@@ -22,6 +22,7 @@ const ContactForm: React.FC<Props> = props => {
   const [submitContactError, setSubmitContactError] = useState('');
   const [submitRecaptcha, setSubmitRecaptcha] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const { handleToggleModal } = props;
   const submitMessage = (
     values: values,
@@ -37,7 +38,12 @@ const ContactForm: React.FC<Props> = props => {
       .then(response => {
         // eslint-disable-next-line no-console
         console.log('response in app', response);
-        handleToggleModal();
+        setSubmitted(true);
+
+        setTimeout(() => {
+          handleToggleModal();
+        }, 500);
+
         setSubmitting(false);
         setLoading(false);
       })
@@ -86,70 +92,79 @@ const ContactForm: React.FC<Props> = props => {
       setSubmitRecaptcha(true);
     }
   }
-
-  return (
-    <section className="contact-form__container">
-      <div className="contact-form__container__modal-header">
-        <h2>CONTACT ME</h2>
-      </div>
-      <Formik
-        initialValues={{ email: '', message: '' }}
-        validate={values => {
-          return contactFormValidation(values);
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          if (!submitRecaptcha) return setSubmitting(false);
-          return submitMessage(values, setSubmitting);
-        }}
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <FormikField
-              label="Email"
-              type="email"
-              name="email"
-              errorComponent="div"
-              className="contact-form__container__from-email"
-            />
-            <FormikField
-              label="Message"
-              type="email"
-              name="message"
-              errorComponent="div"
-              fieldType="textarea"
-              className="contact-form__container__message"
-            />
-            <div className="contact-form__container__modal-footer">
-              <Recaptcha
-                sitekey="6LeA5fgUAAAAAKvGu017bzZPwpkNFU7uh97p9ROA"
-                render="explicit"
-                onloadCallback={onloadCallback}
-                verifyCallback={verifyCallback}
+  const renderForm = () => {
+    if (submitted)
+      return (
+        <div className="contact-form__container__message-sent">
+          <h2>Message Sent</h2>
+        </div>
+      );
+    return (
+      <React.Fragment>
+        <div className="contact-form__container__modal-header">
+          <h2>CONTACT ME</h2>
+        </div>
+        <Formik
+          initialValues={{ email: '', message: '' }}
+          validate={values => {
+            return contactFormValidation(values);
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            if (!submitRecaptcha) return setSubmitting(false);
+            return submitMessage(values, setSubmitting);
+          }}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <FormikField
+                label="Email"
+                type="email"
+                name="email"
+                errorComponent="div"
+                className="contact-form__container__from-email"
               />
-              <Button
-                disabled={isSubmitting}
-                type="submit"
-                className="contact-form__container__modal-footer__button"
-              >
-                Submit
-              </Button>
+              <FormikField
+                label="Message"
+                type="email"
+                name="message"
+                errorComponent="div"
+                fieldType="textarea"
+                className="contact-form__container__message"
+              />
+              <div className="contact-form__container__modal-footer">
+                <Recaptcha
+                  sitekey="6LeA5fgUAAAAAKvGu017bzZPwpkNFU7uh97p9ROA"
+                  render="explicit"
+                  onloadCallback={onloadCallback}
+                  verifyCallback={verifyCallback}
+                />
+                <Button
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="contact-form__container__modal-footer__button"
+                >
+                  Submit
+                </Button>
 
-              {submitContactError && (
-                <p className="contact-form__container__send-email-error">
-                  {submitContactError}
-                </p>
-              )}
-            </div>
-            {loading && (
-              <div className="contact-form__container__is-loading">
-                <LoadingSpinner />
+                {submitContactError && (
+                  <p className="contact-form__container__send-email-error">
+                    {submitContactError}
+                  </p>
+                )}
               </div>
-            )}
-          </Form>
-        )}
-      </Formik>
-    </section>
-  );
+              {loading && (
+                <div className="contact-form__container__is-loading">
+                  <LoadingSpinner />
+                </div>
+              )}
+            </Form>
+          )}
+        </Formik>
+      </React.Fragment>
+    );
+  };
+
+  return <section className="contact-form__container">{renderForm()}</section>;
 };
 
 const mapStateToProps = {

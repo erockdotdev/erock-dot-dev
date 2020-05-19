@@ -58,6 +58,7 @@
     "react/no-array-index-key": 0,
     "react/prop-types": 0,
     "react/jsx-one-expression-per-line": "off",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "react/jsx-fragments": "off"
   }
 }
