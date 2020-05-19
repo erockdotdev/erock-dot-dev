@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Modal from '@modules/Modal/index';
 import ContactForm from '@modules/ContactForm';
+import HamburgerIcon from '@components/HamburgerIcon';
 import BrandIcon from '@components/BrandIcon';
 import './header.scss';
 import classNames from 'classnames';
@@ -67,6 +68,7 @@ class Header extends React.Component<{}, State> {
               </Modal>
             </div>
           </div>
+          <HamburgerIcon />
         </div>
       </nav>
     );

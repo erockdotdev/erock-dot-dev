@@ -1,0 +1,36 @@
+@import '~styles/_typography.scss';
+@import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+.hamburger-icon {
+  display: none;
+  margin: 1em;
+  width: 35px;
+
+  &:hover:before {
+    transform: translateY(8px) rotate(135deg);
+  }
+  &:hover:after {
+    transform: translateY(-12px) rotate(-135deg);
+  }
+  &:hover div {
+    transform: scale(0);
+  }
+}
+
+.hamburger-icon:after,
+.hamburger-icon:before,
+.hamburger-icon div {
+  background-color: #fff;
+  content: '';
+  display: block;
+  height: 3px;
+  margin: 7px 0;
+  transition: all 0.2s ease-in-out;
+}
+@include breakpoint($bp--md) {
+  .hamburger-icon {
+    display: initial;
+  }
+}

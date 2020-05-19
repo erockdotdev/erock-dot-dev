@@ -1,6 +1,7 @@
 @import '~styles/config/_colors.scss';
 @import '~styles/config/_vars.scss';
 @import '~styles/typography.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
 
 .nav {
   &__container {
@@ -45,5 +46,11 @@
   }
   &__right {
     display: flex;
+  }
+}
+
+@include breakpoint($bp--md) {
+  .nav__right {
+    display: none;
   }
 }
