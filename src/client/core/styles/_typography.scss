@@ -27,6 +27,7 @@
   transition: color 300ms linear;
   transition: color 300ms linear;
   cursor: pointer;
+  user-select: none;
   &:hover {
     color: $medium-grey;
     transition: color 300ms linear;

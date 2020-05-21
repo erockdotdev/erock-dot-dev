@@ -1,4 +1,6 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
 
 .project-card {
   &__container {
@@ -29,6 +31,34 @@
       &:focus {
         transition: opacity 400ms ease-in;
         opacity: 1;
+      }
+      & p {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@include breakpoint($bp--md) {
+  .project-card {
+    &__container {
+      border-top: solid $white 5px;
+      &__content {
+        position: initial;
+        opacity: 1;
+        background: $dark-grey2;
+        color: $white;
+        height: auto;
+        text-align: center;
+        justify-content: center;
+        transform: skew(-20deg);
+        position: relative;
+        left: -16px;
+        border-top: solid white 5px;
+        &__inner {
+          padding: 10px 20px 10px 25px;
+          transform: skew(20deg);
+        }
       }
     }
   }

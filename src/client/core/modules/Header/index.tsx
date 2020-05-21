@@ -87,7 +87,7 @@ class Header extends React.Component<Props, State> {
   render() {
     const { lastScrollY } = this.state;
     const isScrolling = lastScrollY > 5;
-    const { isTablet, menuOpen } = this.props;
+    const { isResponsive, menuOpen } = this.props;
 
     const navClass = classNames('nav__container', 'nav__container__top', {
       nav__container__top__scroll: isScrolling
@@ -100,7 +100,7 @@ class Header extends React.Component<Props, State> {
           </NavLink>
           <div className="nav__right">{this.renderNavLinks()}</div>
           <HamburgerIcon onClick={this.handleHamburgerIconClick} />
-          {isTablet && menuOpen && (
+          {isResponsive && menuOpen && (
             <MobileMenu>{this.renderNavLinks()}</MobileMenu>
           )}
         </div>

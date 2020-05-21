@@ -3,6 +3,7 @@
 .ui-link {
   &__container {
     color: $black;
+    text-decoration: none;
   }
   &__light {
     color: $white;

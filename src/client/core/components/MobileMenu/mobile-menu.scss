@@ -9,13 +9,15 @@
     left: 0;
     height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
     background: $black;
     box-sizing: border-box;
     z-index: -1;
+    &__inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+    }
     &__nav-link {
       font-size: 50px;
     }

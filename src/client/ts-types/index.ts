@@ -111,6 +111,7 @@ export type screenDimensions = {
   isMobile: boolean;
   isTablet: boolean;
   isDesktop: boolean;
+  isResponsive: boolean;
 };
 
 export interface Project {

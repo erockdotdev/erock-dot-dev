@@ -10,7 +10,8 @@ export default function withScreenDimensions(WrappedComponent) {
         height: 0,
         isMobile: false,
         isTablet: false,
-        isDesktop: false
+        isDesktop: false,
+        isResponsive: false
       };
       this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
@@ -31,17 +32,26 @@ export default function withScreenDimensions(WrappedComponent) {
       const isMobile = window.innerWidth <= 425;
       const isTablet = window.innerWidth >= 425 && window.innerWidth <= 768;
       const isDesktop = window.innerWidth > 768;
+      const isResponsive = isMobile || isTablet;
       this.setState({
         width: window.innerWidth,
         height: window.innerHeight,
         isMobile,
         isTablet,
-        isDesktop
+        isDesktop,
+        isResponsive
       });
     }
 
     render() {
-      const { width, height, isMobile, isTablet, isDesktop } = this.state;
+      const {
+        width,
+        height,
+        isMobile,
+        isTablet,
+        isDesktop,
+        isResponsive
+      } = this.state;
       return (
         <WrappedComponent
           {...this.props}
@@ -50,6 +60,7 @@ export default function withScreenDimensions(WrappedComponent) {
           isMobile={isMobile}
           isTablet={isTablet}
           isDesktop={isDesktop}
+          isResponsive={isResponsive}
         />
       );
     }

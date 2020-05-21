@@ -26,7 +26,7 @@ const ProjectSlide: React.FC<Props> = ({ projectData }) => {
       <section className="project-card__container" tabIndex={0}>
         <Image imageData={thumbnail} />
         <div className="project-card__container__content">
-          <div className="project-card__container__inner">
+          <div className="project-card__container__content__inner">
             <p>{projectTitle}</p>
             <p>{subtitle}</p>
             <p>{linkLabel}</p>
