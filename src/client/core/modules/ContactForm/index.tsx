@@ -167,8 +167,8 @@ const ContactForm: React.FC<Props> = props => {
   return <section className="contact-form__container">{renderForm()}</section>;
 };
 
-const mapStateToProps = {
+const mapDispatchToProps = {
   handleToggleModal: toggleModal
 };
 
-export default connect(null, mapStateToProps)(ContactForm);
+export default connect(null, mapDispatchToProps)(ContactForm);

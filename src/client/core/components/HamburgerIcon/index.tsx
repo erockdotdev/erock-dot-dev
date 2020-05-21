@@ -1,9 +1,9 @@
 import React from 'react';
 import './hamburger-icon.scss';
 
-const HamburgerIcon: React.FC = () => {
+const HamburgerIcon: React.FC = ({ onClick }) => {
   return (
-    <div tabIndex={0} className="hamburger-icon">
+    <div onClick={onClick} tabIndex={0} className="hamburger-icon">
       <div />
     </div>
   );

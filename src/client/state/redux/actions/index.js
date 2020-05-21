@@ -5,7 +5,8 @@ import {
   FETCH_ADMINS,
   FETCH_ABOUT_PAGE,
   FETCH_HOME_PAGE,
-  UI_TOGGLE_MODAL
+  UI_TOGGLE_MODAL,
+  UI_TOGGLE_MOBILE_MENU
 } from '../types';
 
 export const fetchUsers = () => async (dispatch, getState, api) => {
@@ -57,3 +58,9 @@ export const fetchAboutPage = () => async dispatch => {
 export const toggleModal = () => ({
   type: UI_TOGGLE_MODAL
 });
+
+export const toggleMobileMenu = () => {
+  return {
+    type: UI_TOGGLE_MOBILE_MENU
+  };
+};

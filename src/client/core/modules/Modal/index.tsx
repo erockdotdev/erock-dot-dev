@@ -7,18 +7,20 @@ import './modal.scss';
 
 type Props = {
   buttonLabel: string;
+  onClick: () => {};
 };
 
 const Modal: React.FC<Props> = props => {
   const dispatch = useDispatch();
   const modalOpen = useSelector(toggleModalSelector);
+  const { children, buttonLabel, onClick: onClickModal } = props;
   const openModal = () => {
+    onClickModal();
     dispatch(toggleModal());
   };
   const closeModal = () => {
     dispatch(toggleModal());
   };
-  const { children, buttonLabel } = props;
 
   return (
     <section className="modal__container">

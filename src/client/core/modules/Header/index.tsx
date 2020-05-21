@@ -1,22 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import Modal from '@modules/Modal/index';
+import Modal from '@modules/Modal/';
 import ContactForm from '@modules/ContactForm';
 import HamburgerIcon from '@components/HamburgerIcon';
 import BrandIcon from '@components/BrandIcon';
+import MobileMenu from '@components/MobileMenu';
+import withScreenDimensions from '@components/hocs/screen_dimensions.jsx';
 import './header.scss';
 import classNames from 'classnames';
+import { screenDimensions } from '@custom-types/index';
+import { toggleMobileMenu } from '@redux/actions';
+import { toggleMobileMenuSelector } from '@redux/selectors';
 
 type State = {
   lastScrollY: number;
 };
-class Header extends React.Component<{}, State> {
+type Props = {
+  menuOpen: boolean;
+  handleToggleMenu: () => void;
+} & screenDimensions;
+
+class Header extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
       lastScrollY: 0
     };
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleHamburgerIconClick = this.handleHamburgerIconClick.bind(this);
   }
 
   componentDidMount() {
@@ -33,9 +45,49 @@ class Header extends React.Component<{}, State> {
     });
   }
 
+  handleHamburgerIconClick() {
+    const { handleToggleMenu } = this.props;
+    handleToggleMenu();
+  }
+
+  renderNavLinks() {
+    const { handleToggleMenu } = this.props;
+    return (
+      <React.Fragment>
+        <NavLink
+          onClick={handleToggleMenu}
+          className="nav__nav-link"
+          activeClassName="nav__nav-link nav__nav-link--active"
+          exact
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          onClick={handleToggleMenu}
+          className="nav__nav-link"
+          activeClassName="nav__nav-link nav__nav-link--active"
+          to="/about"
+        >
+          About
+        </NavLink>
+        <div>
+          <Modal
+            onClick={handleToggleMenu}
+            className="nav__nav-link"
+            buttonLabel="Contact"
+          >
+            <ContactForm />
+          </Modal>
+        </div>
+      </React.Fragment>
+    );
+  }
+
   render() {
     const { lastScrollY } = this.state;
     const isScrolling = lastScrollY > 5;
+    const { isTablet, menuOpen } = this.props;
 
     const navClass = classNames('nav__container', 'nav__container__top', {
       nav__container__top__scroll: isScrolling
@@ -46,33 +98,25 @@ class Header extends React.Component<{}, State> {
           <NavLink className="nav__container__brand-icon" to="/">
             <BrandIcon />
           </NavLink>
-          <div className="nav__right">
-            <NavLink
-              className="nav__nav-link"
-              activeClassName="nav__nav-link nav__nav-link--active"
-              exact
-              to="/"
-            >
-              Home
-            </NavLink>
-            <NavLink
-              className="nav__nav-link"
-              activeClassName="nav__nav-link nav__nav-link--active"
-              to="/about"
-            >
-              About
-            </NavLink>
-            <div className="nav__nav-link">
-              <Modal buttonLabel="Contact">
-                <ContactForm />
-              </Modal>
-            </div>
-          </div>
-          <HamburgerIcon />
+          <div className="nav__right">{this.renderNavLinks()}</div>
+          <HamburgerIcon onClick={this.handleHamburgerIconClick} />
+          {isTablet && menuOpen && (
+            <MobileMenu>{this.renderNavLinks()}</MobileMenu>
+          )}
         </div>
       </nav>
     );
   }
 }
 
-export default Header;
+const mapDispatchToProps = {
+  handleToggleMenu: toggleMobileMenu
+};
+function mapStateToProps(state: any) {
+  return { menuOpen: toggleMobileMenuSelector(state) };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withScreenDimensions(Header));

@@ -53,4 +53,10 @@
   .nav__right {
     display: none;
   }
+  //@todo dont update navlinks sizes here
+  &.nav__nav-link,
+  &.modal__container__button {
+    font-size: 50px;
+    width: initial;
+  }
 }

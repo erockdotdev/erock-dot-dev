@@ -11,3 +11,6 @@ export const pageFieldsSelector = createSelector(
 export const toggleModalSelector = createSelector(appSelector, app => {
   return app.toggleModal;
 });
+export const toggleMobileMenuSelector = createSelector(appSelector, app => {
+  return app.toggleMobileMenu;
+});
