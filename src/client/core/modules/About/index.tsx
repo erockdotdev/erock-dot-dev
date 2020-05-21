@@ -28,7 +28,9 @@ const About: React.FC<Props> = ({ fields }) => {
 
   return (
     <section className="about__container">
-      {isImage && <Image imageData={media} />}
+      <div className="about__container__cover-image">
+        {isImage && <Image imageData={media} />}
+      </div>
       <div className="about__container__inner">
         <div className="about__container__inner__about-info">
           <div className="about__container__inner__about-info__headline">

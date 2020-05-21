@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { setup as reactContentfulImageSetup } from 'react-contentful-image';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { renderRoutes } from 'react-router-config';
+import ScrollToTop from '@components/hocs/ScrollToTop';
 import Header from '@modules/Header';
 import Footer from '@modules/Footer';
 import { fetchCurrentUser } from '@redux/actions';
+import { useLocation } from 'react-router-dom';
 import './app.scss';
 
 const App = ({ route }) => {
@@ -44,10 +47,21 @@ const App = ({ route }) => {
     };
     reactContentfulImageSetup(media, variants);
   });
+
+  const location = useLocation();
+  const { pathname } = location;
   return (
     <div id="app-root">
       <Header />
-      {renderRoutes(route.routes)}
+      <TransitionGroup>
+        <CSSTransition
+          key={pathname}
+          timeout={{ enter: 300, exit: 300 }}
+          classNames="fade"
+        >
+          <ScrollToTop>{renderRoutes(route.routes)}</ScrollToTop>
+        </CSSTransition>
+      </TransitionGroup>
       <Footer />
     </div>
   );

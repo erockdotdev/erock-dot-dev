@@ -5,6 +5,9 @@
 .about {
   &__container {
     background-color: $dark-grey2;
+    &__cover-image {
+      min-height: 25vh;
+    }
     &__inner {
       &__about-info,
       &__skills {

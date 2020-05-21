@@ -37,6 +37,7 @@
     }
     &__background {
       max-height: 90vh;
+      min-height: 25vh;
     }
   }
   @include breakpoint($bp--md) {
