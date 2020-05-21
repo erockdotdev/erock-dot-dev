@@ -32,7 +32,7 @@ const Image: React.FC<Props> = ({ imageData, sizes }) => {
         sizes || [
           {
             mediaQuery: 'default',
-            params: { w: 1800, q: 100 }
+            params: { w: 1800, q: 100, fm: 'jpg' }
           }
         ]
       }
