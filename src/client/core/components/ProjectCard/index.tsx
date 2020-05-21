@@ -29,7 +29,9 @@ const ProjectSlide: React.FC<Props> = ({ projectData }) => {
           <div className="project-card__container__content__inner">
             <p>{projectTitle}</p>
             <p>{subtitle}</p>
-            <p>{linkLabel}</p>
+            <p className="project-card__container__content__inner__link-label">
+              {linkLabel}
+            </p>
           </div>
         </div>
       </section>

@@ -53,11 +53,14 @@
         justify-content: center;
         transform: skew(-20deg);
         position: relative;
-        left: -16px;
+        left: -14px;
         border-top: solid white 5px;
         &__inner {
           padding: 10px 20px 10px 25px;
           transform: skew(20deg);
+          &__link-label {
+            display: none;
+          }
         }
       }
     }
