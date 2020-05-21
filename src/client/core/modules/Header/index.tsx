@@ -51,11 +51,11 @@ class Header extends React.Component<Props, State> {
   }
 
   renderNavLinks() {
-    const { handleToggleMenu } = this.props;
+    const { handleToggleMenu, isResponsive } = this.props;
     return (
       <React.Fragment>
         <NavLink
-          onClick={handleToggleMenu}
+          onClick={isResponsive ? handleToggleMenu : () => {}}
           className="nav__nav-link"
           activeClassName="nav__nav-link nav__nav-link--active"
           exact
@@ -64,7 +64,7 @@ class Header extends React.Component<Props, State> {
           Home
         </NavLink>
         <NavLink
-          onClick={handleToggleMenu}
+          onClick={isResponsive ? handleToggleMenu : () => {}}
           className="nav__nav-link"
           activeClassName="nav__nav-link nav__nav-link--active"
           to="/about"
@@ -73,7 +73,7 @@ class Header extends React.Component<Props, State> {
         </NavLink>
         <div>
           <Modal
-            onClick={handleToggleMenu}
+            onClick={isResponsive ? handleToggleMenu : () => {}}
             className="nav__nav-link"
             buttonLabel="Contact"
           >
