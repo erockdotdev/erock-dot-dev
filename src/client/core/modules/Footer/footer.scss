@@ -1,10 +1,12 @@
 @import '~styles/config/_colors.scss';
 @import '~styles/config/_vars.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
 
 .footer {
   &__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     padding: $body-padding;
     background-color: $dark-grey2;
     &__links {
@@ -23,13 +25,18 @@
       }
     }
     &__bottom {
-      text-align: center;
       display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@include breakpoint($bp--md) {
+  .footer {
+    &__container {
       flex-direction: column;
-      &__copyright {
-        display: inline-block;
-        padding-bottom: 10px;
-      }
+      justify-content: center;
     }
   }
 }
