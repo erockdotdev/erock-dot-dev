@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { setup as reactContentfulImageSetup } from 'react-contentful-image';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Helmet } from 'react-helmet';
 import { renderRoutes } from 'react-router-config';
 import ScrollToTop from '@components/hocs/ScrollToTop';
 import Header from '@modules/Header';
 import Footer from '@modules/Footer';
 import { fetchCurrentUser } from '@redux/actions';
 import { useLocation } from 'react-router-dom';
+import favicon from '@assets/images/erockdotdev-favicon.png';
 import './app.scss';
 
 const App = ({ route }) => {
@@ -52,6 +54,9 @@ const App = ({ route }) => {
   const { pathname } = location;
   return (
     <div id="app-root">
+      <Helmet>
+        <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
+      </Helmet>
       <Header />
       <TransitionGroup>
         <CSSTransition
