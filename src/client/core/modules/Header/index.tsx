@@ -87,7 +87,7 @@ class Header extends React.Component<Props, State> {
   render() {
     const { lastScrollY } = this.state;
     const isScrolling = lastScrollY > 5;
-    const { isResponsive, menuOpen } = this.props;
+    const { isResponsive, menuOpen, handleToggleMenu } = this.props;
 
     const navClass = classNames('nav__container', 'nav__container__top', {
       nav__container__top__scroll: isScrolling
@@ -95,7 +95,11 @@ class Header extends React.Component<Props, State> {
     return (
       <nav>
         <div className={navClass}>
-          <NavLink className="nav__container__brand-icon" to="/">
+          <NavLink
+            onClick={isResponsive ? handleToggleMenu : () => {}}
+            className="nav__container__brand-icon"
+            to="/"
+          >
             <BrandIcon />
           </NavLink>
           <div className="nav__right">{this.renderNavLinks()}</div>
