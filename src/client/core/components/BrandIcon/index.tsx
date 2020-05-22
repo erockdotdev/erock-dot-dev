@@ -1,10 +1,11 @@
 import React from 'react';
 import './brand-icon.scss';
+import logo from '@assets/icons/brand-logo.svg';
 
 const BrandIcon = () => {
   return (
     <section className="brand-icon__container">
-      E<span className="nav__brand-logo__dot">•</span>D
+      <img src={logo} alt="erock dot dev" />
     </section>
   );
 };

@@ -64,13 +64,3 @@
 @mixin Post {
   border: none;
 }
-
-@mixin BrandIcon {
-  color: $white;
-  text-transform: uppercase;
-  font-family: 'Rustproof Body', sans-serif;
-  font-size: 35px;
-  letter-spacing: -2px;
-  color: $white;
-  -webkit-text-stroke: $black 1px;
-}

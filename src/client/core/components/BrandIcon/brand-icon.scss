@@ -3,6 +3,8 @@
 
 .brand-icon {
   &__container {
-    @include BrandIcon;
+    img {
+      width: 100px;
+    }
   }
 }
