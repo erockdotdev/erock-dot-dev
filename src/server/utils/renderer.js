@@ -6,7 +6,10 @@ import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 import Routes from '../../client/core/routes';
-
+/**
+ * keep the content with in provider mirroring the code
+ * in src/client/core/index.js
+ */
 export default (req, store, context) => {
   const content = renderToString(
     <Provider store={store}>

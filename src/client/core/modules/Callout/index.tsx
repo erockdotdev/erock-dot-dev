@@ -10,8 +10,8 @@ const Callout: React.FC<CalloutType> = props => {
   return (
     <section className="callout__container">
       <div className="callout__container__text">
-        <h3>{headline}</h3>
-        <h4>{subcopy}</h4>
+        <span className="callout__container__text__headline">{headline}</span>
+        <span className="callout__container__text__subcopy">{subcopy}</span>
       </div>
       <div className="callout__container__image">
         <Image imageData={media} />

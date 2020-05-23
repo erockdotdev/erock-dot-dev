@@ -8,9 +8,11 @@ import {
   screenDimensions
 } from '@custom-types/index';
 import withScreenDimensions from '@components/hocs/screen_dimensions.jsx';
+import Skeleton from 'react-loading-skeleton';
 import UILink from '@components/UILink';
 import Image from '@components/ImageComponent';
 import BackgroundVideo from '@components/BackgroundVideo';
+
 import './hero.scss';
 
 type Props = HeroType & screenDimensions;
@@ -30,7 +32,7 @@ const renderLinks = (ctaLinks: componentLink[]): React.ReactNodeArray => {
 const renderBackgroundImage = (
   background: componentImage
 ): React.ReactElement => {
-  return <Image imageData={background} />;
+  return <Image imageData={background} /> || <Skeleton height={500} />;
 };
 const renderBackgroundVideo = (
   background: componentVideo

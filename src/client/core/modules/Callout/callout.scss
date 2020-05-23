@@ -1,5 +1,6 @@
 @import '~styles/config/_colors.scss';
 @import '~styles/config/_vars.scss';
+@import '~styles/_typography.scss';
 @import 'breakpoint-sass/stylesheets/_breakpoint.scss';
 
 .callout {
@@ -15,6 +16,12 @@
       align-items: center;
       text-align: center;
       min-height: 200px;
+      &__headline {
+        @include h2;
+      }
+      &__subcopy {
+        @include h3;
+      }
     }
     @include breakpoint($bp--md) {
       flex-direction: column-reverse;

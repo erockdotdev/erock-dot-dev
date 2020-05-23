@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import Modal from '@modules/Modal/';
 import ContactForm from '@modules/ContactForm';
@@ -7,11 +8,11 @@ import HamburgerIcon from '@components/HamburgerIcon';
 import BrandIcon from '@components/BrandIcon';
 import MobileMenu from '@components/MobileMenu';
 import withScreenDimensions from '@components/hocs/screen_dimensions.jsx';
-import './header.scss';
-import classNames from 'classnames';
+
 import { screenDimensions } from '@custom-types/index';
 import { toggleMobileMenu } from '@redux/actions';
 import { toggleMobileMenuSelector } from '@redux/selectors';
+import './header.scss';
 
 type State = {
   lastScrollY: number;

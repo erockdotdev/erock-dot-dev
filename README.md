@@ -33,4 +33,4 @@ Push to staging
 
 ### Troubleshooting
 
-Occasionally a push to heroku build will fail to build. In this case run `heroku logs --remote staging --tail` to view error logs. Try running `npm start` to build and run a production build and test locally. Also try `heroku releases:retry --remote staging` to rebuild heroku environment
+Occasionally a push to heroku build will fail to build. In this case run `heroku logs --remote staging --tail` to view error logs. Try running `npm start` to build and run a production build and test locally. Also try `heroku releases:retry --remote staging` to rebuild heroku environment.

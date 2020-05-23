@@ -21,6 +21,11 @@ const store = createStore(
   applyMiddleware(thunk.withExtraArgument(axiosInstance))
 );
 
+/**
+ * keep the content with in provider mirroring the code
+ * in src/server/utils/renderer.js
+ */
+
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
