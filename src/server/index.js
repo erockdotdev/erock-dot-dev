@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import express from 'express';
+import helmet from 'helmet';
 import { matchRoutes } from 'react-router-config';
 import Routes from '../client/core/routes';
 import renderer from './utils/renderer';
@@ -11,6 +12,7 @@ import { sendContactEmail } from './utils/send-contact-email';
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(helmet());
 app.use(
   '/api',
   proxy('http://react-ssr-api.herokuapp.com', {
