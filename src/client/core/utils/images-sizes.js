@@ -13,6 +13,18 @@ module.exports = {
       params: { w: 900 }
     }
   ],
+  brandCard: [
+    {
+      mediaQuery: 'default',
+      params: { w: 85, q: 100 }
+    }
+  ],
+  callout: [
+    {
+      mediaQuery: 'default',
+      params: { w: 650, q: 100 }
+    }
+  ],
   socialIcon: [
     {
       mediaQuery: 'default',
