@@ -43,3 +43,8 @@ alias rebuild-staging="heroku releases:retry --remote staging"
 alias rebuild-production="heroku releases:retry --remote production"
 alias logs-staging="heroku logs --remote staging --tail"
 alias logs-production="heroku logs --remote production --tail"
+
+#### Other Resources
+
+Analytics Google Analytics: https://analytics.google.com/
+Logging with Sumo Logic: https://devcenter.heroku.com/articles/sumologic
