@@ -6,9 +6,10 @@ import './image.scss';
 type Props = {
   imageData: componentImage;
   sizes?: ImageSizes[];
+  showTitle?: boolean;
 };
 
-const Image: React.FC<Props> = ({ imageData, sizes }) => {
+const Image: React.FC<Props> = ({ imageData, sizes, showTitle = true }) => {
   const {
     fields: {
       image: {
@@ -20,11 +21,11 @@ const Image: React.FC<Props> = ({ imageData, sizes }) => {
       }
     }
   } = imageData;
-
+  const renderTitle = showTitle && title;
   return (
     <ReactContentfulImage
       className="image__container__image"
-      title={title}
+      title={renderTitle}
       alt={description}
       src={url}
       draggable={false}

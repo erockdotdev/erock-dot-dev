@@ -32,7 +32,11 @@ const renderLinks = (ctaLinks: componentLink[]): React.ReactNodeArray => {
 const renderBackgroundImage = (
   background: componentImage
 ): React.ReactElement => {
-  return <Image imageData={background} /> || <Skeleton height={500} />;
+  return (
+    <Image imageData={background} showTitle={false} /> || (
+      <Skeleton height={500} />
+    )
+  );
 };
 const renderBackgroundVideo = (
   background: componentVideo
