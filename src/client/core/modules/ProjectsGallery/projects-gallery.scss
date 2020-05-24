@@ -6,7 +6,9 @@
 }
 .projects-gallery {
   &__container {
+    position: relative;
     padding-bottom: 25px;
+    z-index: 1;
     min-height: 200px;
     &__title {
       @include h2;

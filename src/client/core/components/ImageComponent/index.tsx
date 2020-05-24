@@ -21,7 +21,7 @@ const Image: React.FC<Props> = ({ imageData, sizes, showTitle = true }) => {
       }
     }
   } = imageData;
-  const renderTitle = showTitle && title;
+  const renderTitle = showTitle ? title : undefined;
   return (
     <ReactContentfulImage
       className="image__container__image"

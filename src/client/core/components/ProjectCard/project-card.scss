@@ -53,8 +53,8 @@
         justify-content: center;
         transform: skew(-20deg);
         position: relative;
-        left: -14px;
-        border-top: solid white 5px;
+        left: -13px;
+        border-top: solid $white 5px;
         &__inner {
           padding: 10px 20px 10px 25px;
           transform: skew(20deg);
