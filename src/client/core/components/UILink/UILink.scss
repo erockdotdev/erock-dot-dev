@@ -3,9 +3,11 @@
 .ui-link {
   &__container {
     color: $black;
-    text-decoration: none;
   }
   &__light {
     color: $white;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }

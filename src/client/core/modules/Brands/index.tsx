@@ -27,14 +27,7 @@ function renderBrandGroup(brands: componentImage[]): React.ReactNode {
 
 const Brands: React.FC<Props> = props => {
   const {
-    fields: {
-      headline,
-      subcopy,
-      brands,
-      brandsHeadline,
-      artists,
-      artistsHeadline
-    }
+    fields: { headline, subcopy, brands }
   } = props;
   return (
     <section className="brands__container">
@@ -45,15 +38,8 @@ const Brands: React.FC<Props> = props => {
         </div>
       </div>
       <div className="brands__container__logo-wrapper">
-        <h3>{brandsHeadline}</h3>
         <div className="brands__container__logo-inner">
           {renderBrandGroup(brands)}
-        </div>
-      </div>
-      <div className="brands__container__logo-wrapper">
-        <h3>{artistsHeadline}</h3>
-        <div className="brands__container__logo-inner">
-          {renderBrandGroup(artists)}
         </div>
       </div>
       <div className="brands__container__background-bar" />

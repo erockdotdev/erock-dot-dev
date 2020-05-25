@@ -24,9 +24,6 @@ export interface Brands {
     headline: string;
     subcopy: string;
     brands: componentImage[];
-    brandsHeadline: string;
-    artists: componentImage[];
-    artistsHeadline: string;
   };
 }
 export interface Callout {
