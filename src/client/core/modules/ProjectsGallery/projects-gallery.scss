@@ -11,7 +11,7 @@
     z-index: 1;
     min-height: 200px;
     &__title {
-      @include h2;
+      @include h3;
       padding-left: $body-padding;
     }
     &__inner {
