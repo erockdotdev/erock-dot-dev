@@ -5,12 +5,13 @@ import './callout.scss';
 
 const Callout: React.FC<CalloutType> = props => {
   const {
-    fields: { headline, instagramLink }
+    fields: { headline, instagramLink, imageLabel }
   } = props;
+
   return (
     <section className="callout__container">
       <div className="callout__container__text">
-        <span className="callout__container__text__headline">{headline}</span>
+        <div className="callout__container__text__headline">{headline}</div>
         <span className="callout__container__text__subcopy">
           <UILink link={instagramLink} className="ui-link__light" />
         </span>
@@ -27,6 +28,13 @@ const Callout: React.FC<CalloutType> = props => {
             overflow: 'hidden'
           }}
         />
+        {imageLabel && (
+          <div className="callout__container__image__tag">
+            <span className="callout__container__image__tag__label">
+              {imageLabel}
+            </span>
+          </div>
+        )}
       </div>
     </section>
   );

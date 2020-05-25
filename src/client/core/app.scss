@@ -18,6 +18,8 @@ body {
   font-family: 'Open Sans Regular' !important;
   background: $black;
   color: $white;
+  position: relative;
+  z-index: 0;
 }
 
 .fade-enter {

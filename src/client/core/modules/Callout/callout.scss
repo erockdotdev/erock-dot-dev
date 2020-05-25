@@ -6,7 +6,8 @@
 .callout {
   &__container {
     display: flex;
-    div {
+    &__text,
+    &__image {
       width: 50%;
     }
     &__text {
@@ -18,6 +19,7 @@
       min-height: 200px;
       &__headline {
         @include h3;
+        padding: 0 $body-padding;
       }
       &__subcopy {
         @include h2;
@@ -44,10 +46,26 @@
         content: '';
         background-color: transparent;
       }
+      &__tag {
+        position: absolute;
+        display: flex;
+        justify-content: end;
+        right: -5;
+        bottom: 25px;
+        background: $black-t8;
+        padding: 10px 20px;
+        border-left: solid $white 2px;
+        &__label {
+          color: $white;
+          width: 100%;
+          text-align: right;
+        }
+      }
     }
     @include breakpoint($bp--md) {
       flex-direction: column-reverse;
-      div {
+      &__text,
+      &__image {
         width: 100%;
       }
       &__image {

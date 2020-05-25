@@ -29,6 +29,7 @@ export interface Brands {
 export interface Callout {
   fields: {
     headline: string;
+    imageLabel: string;
     instagramLink: componentLink;
   };
 }
