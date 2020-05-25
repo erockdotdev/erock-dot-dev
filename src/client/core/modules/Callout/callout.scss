@@ -17,10 +17,10 @@
       text-align: center;
       min-height: 200px;
       &__headline {
-        @include h2;
+        @include h3;
       }
       &__subcopy {
-        @include h3;
+        @include h2;
       }
     }
     &__image {

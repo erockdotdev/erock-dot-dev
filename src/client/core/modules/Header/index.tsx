@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
-import Modal from '@modules/Modal/';
+import Modal from '@modules/Modal';
 import ContactForm from '@modules/ContactForm';
 import HamburgerIcon from '@components/HamburgerIcon';
 import BrandIcon from '@components/BrandIcon';
