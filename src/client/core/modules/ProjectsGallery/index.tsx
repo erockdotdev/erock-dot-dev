@@ -4,7 +4,6 @@ import ProjectCard from '@components/ProjectCard';
 import CarouselArrow from '@components/CarouselArrow';
 import Slider from 'react-slick';
 import './projects-gallery.scss';
-import classNames from 'classnames';
 
 type Props = {
   fields: {
@@ -41,7 +40,8 @@ const ProjectsGallery: React.FC<Props> = ({ fields }) => {
     prevArrow: <CarouselArrow isPrev />,
     responsive: [
       {
-        breakpoint: 768,
+        // @todo move breakpoint to config
+        breakpoint: 769,
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,

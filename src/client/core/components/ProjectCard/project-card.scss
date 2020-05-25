@@ -48,12 +48,13 @@
         opacity: 1;
         background: $dark-grey2;
         color: $white;
+        font-size: 14px;
         height: auto;
         text-align: center;
         justify-content: center;
         transform: skew(-20deg);
         position: relative;
-        left: -13px;
+        left: -14px;
         border-top: solid $white 5px;
         &__inner {
           padding: 10px 20px 10px 25px;
@@ -61,6 +62,18 @@
           &__link-label {
             display: none;
           }
+        }
+      }
+    }
+  }
+}
+@include breakpoint($bp--sm) {
+  .project-card {
+    &__container {
+      &__content {
+        left: -11px;
+        &__inner {
+          font-size: 11px;
         }
       }
     }

@@ -29,10 +29,10 @@
         text-transform: uppercase;
       }
       &__subcopy {
-        font-size: 38px;
+        font-size: 24px;
       }
       &__link-container {
-        font-size: 24px;
+        font-size: 38px;
       }
     }
     &__background {
@@ -48,7 +48,26 @@
           line-height: 56px;
         }
         &__subcopy {
+          font-size: 18px;
+        }
+        &__link-container {
           font-size: 24px;
+        }
+      }
+    }
+  }
+  @include breakpoint($bp--sm) {
+    &__container {
+      &__content {
+        &__headline {
+          font-size: 42px;
+          line-height: 42px;
+        }
+        &__subcopy {
+          font-size: 14px;
+        }
+        &__link-container {
+          font-size: 18px;
         }
       }
     }

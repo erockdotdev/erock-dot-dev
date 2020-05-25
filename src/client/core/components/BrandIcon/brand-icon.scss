@@ -1,10 +1,19 @@
 @import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
 @import '~styles/_typography.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
 
 .brand-icon {
   &__container {
     img {
       width: 100px;
+    }
+  }
+  @include breakpoint($bp--md) {
+    &__container {
+      img {
+        width: 85px;
+      }
     }
   }
 }
