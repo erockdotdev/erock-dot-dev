@@ -1,9 +1,12 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import './about.scss';
-import FormatRichTextField from '@utils/contentful-rich-text-formatting';
+import Marked from 'marked';
+import { useDispatch } from 'react-redux';
+import { toggleModal } from '@redux/actions';
 import Image from '@components/ImageComponent';
+import Button from '@components/Button';
 import { BackgroundType, componentImage } from '@custom-types/index';
+import './about.scss';
 
 type Props = {
   fields: {
@@ -22,9 +25,11 @@ function renderSkills(coreSkills: string[]): React.ReactNodeArray {
 
 const About: React.FC<Props> = ({ fields }) => {
   const { headline, about, media, coreSkills, otherSkills } = fields;
+  const dispatch = useDispatch();
   const { id } = media.sys.contentType.sys;
   const isImage = id === BackgroundType.image;
-  const formatAbout = FormatRichTextField(about);
+  const formatBody = Marked(about);
+  const body = JSON.parse(JSON.stringify(formatBody));
 
   return (
     <section className="about__container">
@@ -39,7 +44,17 @@ const About: React.FC<Props> = ({ fields }) => {
             </h2>
           </div>
           <div className="about__container__inner__about-info__body">
-            {formatAbout}
+            <div dangerouslySetInnerHTML={{ __html: body }} />
+            <div className="about__container__inner__about-info__body__button-container">
+              <Button
+                type="button"
+                onClick={() => {
+                  dispatch(toggleModal());
+                }}
+              >
+                Get in touch!
+              </Button>
+            </div>
           </div>
         </div>
         <div className="about__container__inner__skills">

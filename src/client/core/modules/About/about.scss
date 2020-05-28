@@ -1,6 +1,7 @@
 @import '~styles/config/_colors.scss';
 @import '~styles/config/_vars.scss';
 @import '~styles/_typography.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
 
 .about {
   &__container {
@@ -33,6 +34,21 @@
         }
         &__body {
           @include Body;
+          max-width: 80%;
+          margin: 0 auto;
+          p {
+            padding-bottom: 20px;
+          }
+          img {
+            max-width: 80%;
+            display: flex;
+            margin: 45px auto 35px auto;
+          }
+          &__button-container {
+            display: flex;
+            justify-content: center;
+            margin: 45px 0 35px 0;
+          }
         }
       }
       &__skills {
@@ -41,6 +57,27 @@
         background-color: $black;
         ul {
           list-style: none;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint($bp--md) {
+  .about {
+    &__container {
+      background-color: $dark-grey2;
+      &__cover-image {
+        min-height: 25vh;
+      }
+      &__inner {
+        &__about-info {
+          &__body {
+            max-width: 100%;
+            img {
+              max-width: 100%;
+            }
+          }
         }
       }
     }
