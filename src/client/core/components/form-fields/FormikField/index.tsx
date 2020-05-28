@@ -4,7 +4,7 @@ import './formik-field.scss';
 
 type Props = {
   label: string;
-  type: string;
+  type?: string;
   name: string;
   errorComponent: string;
   fieldType?: string;

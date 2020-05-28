@@ -16,6 +16,7 @@ type Props = {
 type values = {
   email: string | null;
   message: string | null;
+  name: string | null;
 };
 
 const ContactForm: React.FC<Props> = props => {
@@ -28,12 +29,13 @@ const ContactForm: React.FC<Props> = props => {
     values: values,
     setSubmitting: (arg0: boolean) => void
   ) => {
-    const { email, message } = values;
+    const { email, message, name } = values;
     setLoading(true);
     axios
       .post('/contact', {
         email,
-        message
+        message,
+        name
       })
       .then(response => {
         // eslint-disable-next-line no-console
@@ -62,7 +64,8 @@ const ContactForm: React.FC<Props> = props => {
     let hasErrors: boolean = true;
     const errors: values = {
       email: '',
-      message: ''
+      message: '',
+      name: ''
     };
     if (!values.email) {
       errors.email = 'Required';
@@ -76,6 +79,12 @@ const ContactForm: React.FC<Props> = props => {
     if (!values.message) {
       hasErrors = true;
       errors.message = 'Required';
+    } else {
+      hasErrors = false;
+    }
+    if (!values.name) {
+      hasErrors = true;
+      errors.name = 'Required';
     } else {
       hasErrors = false;
     }
@@ -105,7 +114,7 @@ const ContactForm: React.FC<Props> = props => {
           <h2>CONTACT ME</h2>
         </div>
         <Formik
-          initialValues={{ email: '', message: '' }}
+          initialValues={{ email: '', message: '', name: '' }}
           validate={values => {
             return contactFormValidation(values);
           }}
@@ -124,8 +133,13 @@ const ContactForm: React.FC<Props> = props => {
                 className="contact-form__container__from-email"
               />
               <FormikField
+                label="Name"
+                name="name"
+                errorComponent="div"
+                className="contact-form__container__from-email"
+              />
+              <FormikField
                 label="Message"
-                type="email"
                 name="message"
                 errorComponent="div"
                 fieldType="textarea"
