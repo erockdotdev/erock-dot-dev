@@ -4,6 +4,11 @@ export interface MetaData {
     description: string;
     keywords: string;
     url: string;
+    image: {
+      fields: {
+        file: { url: string };
+      };
+    };
   };
 }
 export interface Hero {
