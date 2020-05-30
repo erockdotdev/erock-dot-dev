@@ -51,7 +51,7 @@ app.get('*', (req, res) => {
 app.post('/contact', (req, res) => {
   const response = (error, info) => {
     if (error) {
-      console.log(error);
+      console.error(error);
       res.status(400).send({
         message:
           'Unfortunately your request could not be processed, please try again',
