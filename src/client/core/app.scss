@@ -4,10 +4,38 @@
 // Component styles
 @import './components/components';
 
+// Component styles
+@import './styles/_fonts.scss';
+
 // // Module Styles
 // @import './modules/modules';
-
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   display: block !important;
-  font-family: 'MyFont' !important;
+  font-family: 'Open Sans Regular' !important;
+  background: $black;
+  color: $white;
+  position: relative;
+  z-index: 0;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

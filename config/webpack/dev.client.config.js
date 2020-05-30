@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const baseConfig = require('./base.config.js');
 
 const config = {
+  watch: true,
   entry: path.resolve(__dirname, '../../src/client/core/index.js'),
   mode: 'development',
   module: {

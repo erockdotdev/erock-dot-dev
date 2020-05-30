@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAboutPage } from '@redux/actions';
 import { pageFieldsSelector } from '@redux/selectors';
 import BasePage from '@components/BasePage';
+import renderUIModules from '@utils/moduleRenderer';
 
 const AboutPage = () => {
   const dispatch = useDispatch();
@@ -11,12 +12,9 @@ const AboutPage = () => {
     dispatch(fetchAboutPage());
   }, []);
   if (!page) return null;
-  const { title, metaData } = page;
-  return (
-    <BasePage metaData={metaData}>
-      <div>This is the {title}</div>
-    </BasePage>
-  );
+
+  const { metaData, uiModules } = page;
+  return <BasePage metaData={metaData}>{renderUIModules(uiModules)}</BasePage>;
 };
 
 function loadData(store: any): void {

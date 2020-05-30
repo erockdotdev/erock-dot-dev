@@ -1,0 +1,13 @@
+@import '~styles/config/_colors.scss';
+@import '~styles/typography.scss';
+
+.formik-field {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    &__error {
+      color: $alert-red;
+    }
+  }
+}

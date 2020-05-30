@@ -14,7 +14,8 @@ export default [
       },
       {
         ...AboutPage,
-        path: '/about'
+        path: '/about',
+        exact: true
       },
       {
         ...NotFoundPage

@@ -1,0 +1,81 @@
+@import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+.project-card {
+  &__container {
+    margin: 0 5px;
+    position: relative;
+    color: $white;
+    cursor: pointer;
+    & img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    &__content {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      transition: opacity 400ms ease-in;
+      &:hover,
+      &:active,
+      &:focus {
+        transition: opacity 400ms ease-in;
+        opacity: 1;
+      }
+      & p {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@include breakpoint($bp--md) {
+  .project-card {
+    &__container {
+      border-top: solid $white 5px;
+      &__content {
+        position: initial;
+        opacity: 1;
+        background: $dark-grey2;
+        color: $white;
+        font-size: 14px;
+        height: auto;
+        text-align: center;
+        justify-content: center;
+        transform: skew(-20deg);
+        position: relative;
+        left: -14px;
+        border-top: solid $white 5px;
+        &__inner {
+          padding: 10px 20px 10px 25px;
+          transform: skew(20deg);
+          &__link-label {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@include breakpoint($bp--sm) {
+  .project-card {
+    &__container {
+      &__content {
+        left: -11px;
+        &__inner {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

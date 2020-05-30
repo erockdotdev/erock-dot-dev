@@ -1,0 +1,25 @@
+@import '~styles/_typography.scss';
+@import '~styles/config/_colors.scss';
+$btn-width: 200px;
+$btn-padding: 10px;
+
+.arrow__container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  opacity: 0.9;
+  height: 101%;
+  transition: opacity 300ms ease-in;
+  &--next {
+    right: 0px;
+  }
+  &--prev {
+    left: 0px;
+    z-index: 1;
+  }
+  &--hide {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+}

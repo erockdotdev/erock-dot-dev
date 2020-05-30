@@ -8,7 +8,17 @@ type Props = {
 
 const MetaData: React.FC<Props> = ({ metaData }) => {
   const {
-    fields: { title, description, keywords, url }
+    fields: {
+      title,
+      description,
+      keywords,
+      url,
+      image: {
+        fields: {
+          file: { url: imageURL }
+        }
+      }
+    }
   } = metaData;
   return (
     <Helmet>
@@ -17,7 +27,7 @@ const MetaData: React.FC<Props> = ({ metaData }) => {
       <meta name="keywords" content={keywords} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="#" />
+      <meta property="og:image" content={`https://${imageURL}`} />
       <meta property="og:url" content={url} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@MiracleEar" />

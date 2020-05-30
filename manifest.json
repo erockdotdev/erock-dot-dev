@@ -1,0 +1,13 @@
+{
+  "name": "erock.dev",
+  "short_name": "E•D",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Lorem ipsum...",
+  "direction": "ltr",
+  "lang": "en-US"
+}

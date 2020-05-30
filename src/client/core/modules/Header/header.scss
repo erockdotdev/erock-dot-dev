@@ -1,0 +1,66 @@
+@import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import '~styles/typography.scss';
+@import '~styles/_mixins.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+.nav {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $nav-height;
+    padding: 0 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+    &__brand-icon {
+      text-decoration: none;
+    }
+    &__top {
+      transition: all 1s linear;
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(to bottom, $black, transparent);
+        z-index: -1;
+        transition: all 1s linear;
+        opacity: 1;
+      }
+      &__scroll {
+        background: $black;
+        transition: all 1s linear;
+      }
+    }
+  }
+
+  &__nav-link {
+    @include NavLink;
+    @include flex-center;
+    &--active {
+      @include NavLinkActive;
+    }
+  }
+  &__right {
+    display: flex;
+  }
+}
+
+@include breakpoint($bp--md) {
+  .nav__right {
+    display: none;
+  }
+  //@todo dont update navlinks sizes here
+  &.nav__nav-link,
+  &.modal__container__button {
+    font-size: 35px;
+    width: initial;
+  }
+}

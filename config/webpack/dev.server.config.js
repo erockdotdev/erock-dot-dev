@@ -5,6 +5,7 @@ const merge = require('webpack-merge');
 const baseConfig = require('./base.config.js');
 
 const config = {
+  watch: true,
   mode: 'development',
   target: 'node',
   entry: path.resolve(__dirname, '../../src/server/index.js'),

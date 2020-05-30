@@ -1,67 +1,62 @@
 // =============================================================================
-// Font Face
+// Open Sans
 // =============================================================================
 
 @font-face {
-  font-family: 'MyFont';
+  font-family: 'Open Sans Light';
   src: url('../assets/fonts/open-sans/open-sans-v17-latin-300.woff2')
       format('woff2'),
     url('../assets/fonts/open-sans/open-sans-v17-latin-300.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
-
-body {
-  font-family: 'MyFont' !important;
+@font-face {
+  font-family: 'Open Sans Light Italic';
+  src: url('../assets/fonts/open-sans/open-sans-v17-latin-300italic.woff2')
+      format('woff2'),
+    url('../assets/fonts/open-sans/open-sans-v17-latin-300italic.woff')
+      format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url('../assets/fonts/open-sans/open-sans-v17-latin-regular.woff2')
+      format('woff2'),
+    url('../assets/fonts/open-sans/open-sans-v17-latin-regular.woff')
+      format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
 
-// @font-face {
-//   font-family: 'Graphik Extralight Italic';
-//   src: url(static/fonts/Graphik-ExtralightItalic-Web.woff) format('woff');
-//   font-weight: 400;
-//   font-style: normal;
-//   font-stretch: normal;
-// }
+@font-face {
+  font-family: 'Open Sans Italic';
+  src: url('../assets/fonts/open-sans/open-sans-v17-latin-italic.woff2')
+      format('woff2'),
+    url('../assets/fonts/open-sans/open-sans-v17-latin-italic.woff')
+      format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
 
-// @font-face {
-//   font-family: 'Graphik Extralight';
-//   src: url(static/fonts/Graphik-Extralight-Web.woff) format('woff');
-//   font-weight: 400;
-//   font-style: normal;
-//   font-stretch: normal;
-// }
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url('../assets/fonts/open-sans/open-sans-v17-latin-700.woff2')
+      format('woff2'),
+    url('../assets/fonts/open-sans/open-sans-v17-latin-700.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: 'Graphik Light';
-//   src: url(static/fonts/Graphik-Light-Web.woff) format('woff');
-//   font-weight: 400;
-//   font-style: normal;
-//   font-stretch: normal;
-// }
-
-// @font-face {
-//   font-family: 'Graphik Regular';
-//   src: url(static/fonts/Graphik-Regular-Web.woff) format('woff');
-//   font-weight: 400;
-//   font-style: normal;
-//   font-stretch: normal;
-// }
-
-// @font-face {
-//   font-family: 'Graphik Semibold';
-//   src: url(static/fonts/Graphik-Semibold-Web.woff) format('woff');
-//   font-weight: 600;
-//   font-style: bold;
-//   font-stretch: normal;
-// }
-
-// @font-face {
-//   font-family: 'Graphik Regular Italic';
-//   src: url(static/fonts/Graphik-Regular-Italic.woff) format('woff');
-//   font-weight: 400;
-//   font-style: normal;
-//   font-stretch: normal;
-// }
+@font-face {
+  font-family: 'Open Sans Bold Italic';
+  src: url('../assets/fonts/open-sans/open-sans-v17-latin-700italic.woff2')
+      format('woff2'),
+    url('../assets/fonts/open-sans/open-sans-v17-latin-700italic.woff')
+      format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
 
 // @mixin Graphik-Extralight {
 //   font-family: 'Graphik Extralight', sans-serif;

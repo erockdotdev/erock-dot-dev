@@ -1,0 +1,42 @@
+@import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+.footer {
+  &__container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: $body-padding;
+    background-color: $dark-grey2;
+    &__links {
+      display: flex;
+      justify-content: center;
+      &__link {
+        padding: 10px;
+        img {
+          height: 35px;
+          width: 35px;
+          filter: invert(1);
+          &:hover {
+            filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+          }
+        }
+      }
+    }
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@include breakpoint($bp--md) {
+  .footer {
+    &__container {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

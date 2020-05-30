@@ -1,0 +1,85 @@
+@import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import '~styles/_typography.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+.about {
+  &__container {
+    background-color: $dark-grey2;
+    &__cover-image {
+      min-height: 25vh;
+    }
+    &__inner {
+      &__about-info,
+      &__skills {
+        padding: $body-padding;
+      }
+      &__about-info {
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &__headline {
+          margin-bottom: 20px;
+          display: inline-block;
+          background: $black;
+          padding: 20px 30px 20px 50px;
+          left: -65px;
+          position: relative;
+          transform: skew(-20deg);
+          z-index: 1;
+          &__inner {
+            transform: skew(20deg);
+          }
+        }
+        &__body {
+          @include Body;
+          max-width: 80%;
+          margin: 0 auto;
+          p {
+            padding-bottom: 20px;
+          }
+          img {
+            max-width: 80%;
+            display: flex;
+            margin: 45px auto 35px auto;
+          }
+          &__button-container {
+            display: flex;
+            justify-content: center;
+            margin: 45px 0 35px 0;
+          }
+        }
+      }
+      &__skills {
+        display: flex;
+        padding-top: 20px;
+        background-color: $black;
+        ul {
+          list-style: none;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint($bp--md) {
+  .about {
+    &__container {
+      background-color: $dark-grey2;
+      &__cover-image {
+        min-height: 25vh;
+      }
+      &__inner {
+        &__about-info {
+          &__body {
+            max-width: 100%;
+            img {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

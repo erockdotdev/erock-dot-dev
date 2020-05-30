@@ -1,8 +1,6 @@
+@import '~styles/config/_colors.scss';
 .basepage__container {
-  padding: 25px;
-  height: 100%;
-  width: 100%;
-  &__test {
-    color: green;
-  }
+  box-sizing: border-box;
+  min-height: 75vh;
+  background-color: $black;
 }

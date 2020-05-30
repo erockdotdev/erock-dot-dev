@@ -1,8 +1,28 @@
 // Semantic Color variables
 $black: #000;
-$eqx-black: #181818;
 $white: #fff;
+$white-ghost: #ebedf2;
 $grey: #c2c2c2;
+$error-red: #e00;
 $alert-red: #ef0703;
 $success-green: #00b200;
 $warning-yellow: #ffcd19;
+
+$dark-grey: #555555;
+$dark-grey2: #1d1d1d;
+$medium-grey: #999999;
+$medium-grey2: #cacaca;
+$light-grey: #f3f3f3;
+
+$black-t1: rgba(0, 0, 0, 0.1);
+$black-t2: rgba(0, 0, 0, 0.2);
+$black-t3: rgba(0, 0, 0, 0.3);
+$black-t4: rgba(0, 0, 0, 0.4);
+$black-t5: rgba(0, 0, 0, 0.5);
+$black-t6: rgba(0, 0, 0, 0.6);
+$black-t7: rgba(0, 0, 0, 0.7);
+$black-t8: rgba(0, 0, 0, 0.8);
+$black-t9: rgba(0, 0, 0, 0.9);
+
+$gradient-blue-red: linear-gradient(#001fff, #ff0020);
+$gradient-blue-purple: linear-gradient(#001fff, #770095);

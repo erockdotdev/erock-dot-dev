@@ -1,0 +1,76 @@
+@import '~styles/config/_colors.scss';
+@import '~styles/config/_vars.scss';
+@import '~styles/_typography.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+.callout {
+  &__container {
+    display: flex;
+    &__text,
+    &__image {
+      width: 50%;
+    }
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 200px;
+      &__headline {
+        @include h3;
+        padding: 0 $body-padding;
+      }
+      &__subcopy {
+        @include h2;
+      }
+    }
+    &__image {
+      position: relative;
+      overflow: hidden;
+      padding-top: 50.25%;
+      &__resp-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: transparent;
+      }
+      &__tag {
+        position: absolute;
+        display: flex;
+        justify-content: end;
+        right: -5;
+        bottom: 25px;
+        background: $black-t8;
+        padding: 10px 20px;
+        border-left: solid $white 2px;
+        &__label {
+          color: $white;
+          width: 100%;
+          text-align: right;
+        }
+      }
+    }
+    @include breakpoint($bp--md) {
+      flex-direction: column-reverse;
+      &__text,
+      &__image {
+        width: 100%;
+      }
+      &__image {
+        padding-top: 100.25%;
+      }
+    }
+  }
+}
